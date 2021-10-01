@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../queries';
 
-const LoginForm = ({ setToken, show }) => {
+const LoginForm = ({ setToken, setMessage, show }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,7 +24,10 @@ const LoginForm = ({ setToken, show }) => {
     const submit = async e => {
         e.preventDefault();
         login({ variables: { username, password } });
-
+        setMessage(`${username} is logged in!`);
+        setTimeout(() => {
+            setMessage(null);
+        }, 5000);
         setUsername('');
         setPassword('');
     };

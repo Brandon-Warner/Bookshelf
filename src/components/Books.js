@@ -39,11 +39,11 @@ const Books = ({ show }) => {
         }
     }, [books, selectedGenre]);
 
-    console.log('books: ', books);
-    console.log('filtered books: ', filteredBooks);
-    console.log('genres: ', genres);
-    console.log('unique genres: ', uniqueGenres);
-    console.log('selected genre: ', selectedGenre);
+    // console.log('books: ', books);
+    // console.log('filtered books: ', filteredBooks);
+    // console.log('genres: ', genres);
+    // console.log('unique genres: ', uniqueGenres);
+    // console.log('selected genre: ', selectedGenre);
 
     if (!show) {
         return null;
