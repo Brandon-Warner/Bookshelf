@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../queries';
 
-const NewUser = ({ show, setMessage }) => {
+const NewUser = ({ show, setNotification }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [favoriteGenre, setFavoriteGenre] = useState('');
@@ -14,7 +14,7 @@ const NewUser = ({ show, setMessage }) => {
 
     const containsNumber = array => {
         for (let i = 0; i < array.length; i++) {
-            console.log('array[i]: ', array[i]);
+            // console.log('array[i]: ', array[i]);
             if (
                 array[i] === '0' ||
                 array[i] === '1' ||
@@ -37,16 +37,10 @@ const NewUser = ({ show, setMessage }) => {
         const passwordArray = password.split('');
         console.log('passwordArray: ', passwordArray);
         if (passwordArray.length < 8) {
-            setMessage('password needs to be 8 characters or more');
-            setTimeout(() => {
-                setMessage(null);
-            }, 5000);
+            setNotification('password needs to be 8 characters or more', 5);
             return false;
         } else if (!containsNumber(passwordArray)) {
-            setMessage('password must contain at least one number');
-            setTimeout(() => {
-                setMessage(null);
-            }, 5000);
+            setNotification('password must contain at least one number', 5);
             return false;
         }
         return true;
@@ -61,10 +55,7 @@ const NewUser = ({ show, setMessage }) => {
         } else {
             createUser({ variables: { username, password, favoriteGenre } });
 
-            setMessage(`${username}'s account has been created`);
-            setTimeout(() => {
-                setMessage(null);
-            }, 5000);
+            setNotification(`${username}'s account has been created`, 5);
 
             setUsername('');
             setPassword('');

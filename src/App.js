@@ -64,7 +64,6 @@ const App = () => {
         }, duration * 1000);
     };
 
-    console.log(message);
     return (
         <div>
             <div>
@@ -97,7 +96,7 @@ const App = () => {
                 show={page === 'login'}
             />
 
-            <NewUser setMessage={setMessage} show={page === 'newUser'} />
+            <NewUser setNotification={setNotification} show={page === 'newUser'} />
 
             <Authors authors={result.data.allAuthors} show={page === 'authors'} />
 
