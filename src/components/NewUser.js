@@ -12,43 +12,73 @@ const NewUser = ({ show, setMessage }) => {
         return null;
     }
 
-    // const validatePassword = password => {
-    //     const passwordArray = password.split(' ');
-    //     console.log('passwordArray: ', passwordArray);
-    //     if (passwordArray.length < 8) {
-    //         setMessage('password needs to be 8 characters or more');
-    //         return false;
-    //     } else if (passwordArray.some(typeof Number)) {
-    //         alert('password must contain at least one number');
-    //         return false;
-    //     }
-    //     return true;
-    // };
+    const containsNumber = array => {
+        for (let i = 0; i < array.length; i++) {
+            console.log('array[i]: ', array[i]);
+            if (
+                array[i] === '0' ||
+                array[i] === '1' ||
+                array[i] === '2' ||
+                array[i] === '3' ||
+                array[i] === '4' ||
+                array[i] === '5' ||
+                array[i] === '6' ||
+                array[i] === '7' ||
+                array[i] === '8' ||
+                array[i] === '9'
+            ) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    const validatePassword = password => {
+        const passwordArray = password.split('');
+        console.log('passwordArray: ', passwordArray);
+        if (passwordArray.length < 8) {
+            setMessage('password needs to be 8 characters or more');
+            setTimeout(() => {
+                setMessage(null);
+            }, 5000);
+            return false;
+        } else if (!containsNumber(passwordArray)) {
+            setMessage('password must contain at least one number');
+            setTimeout(() => {
+                setMessage(null);
+            }, 5000);
+            return false;
+        }
+        return true;
+    };
 
     const submit = e => {
         e.preventDefault();
+        if (!validatePassword(password)) {
+            setUsername('');
+            setPassword('');
+            setFavoriteGenre('');
+        } else {
+            createUser({ variables: { username, password, favoriteGenre } });
 
-        // if (!validatePassword(password)) {
-        // }
+            setMessage(`${username}'s account has been created`);
+            setTimeout(() => {
+                setMessage(null);
+            }, 5000);
 
-        console.log(username, password, favoriteGenre);
-
-        createUser({ variables: { username, password, favoriteGenre } });
-
-        setMessage(`${username}'s account has been created`);
-        setTimeout(() => {
-            setMessage(null);
-        }, 5000);
-
-        setUsername('');
-        setPassword('');
-        setFavoriteGenre('');
+            setUsername('');
+            setPassword('');
+            setFavoriteGenre('');
+        }
     };
     return (
         <div>
             <h2>New User</h2>
-            <h3>please enter a valid username and password</h3>
-            <h3>include your favorite genre so we can provide you recommendations!</h3>
+            <p>please enter a valid username and password</p>
+            <p>include your favorite genre so we can provide you recommendations!</p>
+            <p>
+                <strong>password must be 8 characters and contain at least 1 number</strong>
+            </p>
             <form onSubmit={submit}>
                 username
                 <input value={username} onChange={({ target }) => setUsername(target.value)} />

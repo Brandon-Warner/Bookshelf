@@ -55,6 +55,15 @@ const App = () => {
         localStorage.clear();
         client.resetStore();
     };
+
+    // helper function for setting notifications
+    const setNotification = (text, duration) => {
+        setMessage(text);
+        setTimeout(() => {
+            setMessage(null);
+        }, duration * 1000);
+    };
+
     console.log(message);
     return (
         <div>
@@ -82,7 +91,11 @@ const App = () => {
                 <Notification setMessage={setMessage} />
             </div>
 
-            <LoginForm setToken={setToken} setMessage={setMessage} show={page === 'login'} />
+            <LoginForm
+                setToken={setToken}
+                setNotification={setNotification}
+                show={page === 'login'}
+            />
 
             <NewUser setMessage={setMessage} show={page === 'newUser'} />
 

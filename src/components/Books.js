@@ -6,6 +6,7 @@ import { ALL_BOOKS } from '../queries';
 const Books = ({ show }) => {
     const [books, setBooks] = useState([]);
     const [filteredBooks, setFilteredBooks] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [genres, setGenres] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState('');
     const [uniqueGenres, setUniqueGenres] = useState([]);
