@@ -84,7 +84,7 @@ const NewUser = ({ show, setNotification }) => {
                 favorite genre
                 <input
                     value={favoriteGenre}
-                    onChange={({ target }) => setFavoriteGenre(target.value)}
+                    onChange={({ target }) => setFavoriteGenre(target.value.toLowerCase())}
                 />
                 <br />
                 <button type='submit'>create new user</button>

@@ -17,8 +17,6 @@ const App = () => {
     const userResult = useQuery(ME);
 
     const [message, setMessage] = useState(null);
-    // console.log('userResult: ', userResult);
-    // console.log('result: ', result);
 
     const updateCacheWith = addedBook => {
         const includedIn = (set, object) => set.map(p => p.id).includes(object.id);
@@ -36,10 +34,9 @@ const App = () => {
 
     useSubscription(BOOK_ADDED, {
         onSubscriptionData: ({ subscriptionData }) => {
-            console.log('subscription data: ', subscriptionData);
+            // console.log('subscription data: ', subscriptionData);
             const addedBook = subscriptionData.data.bookAdded;
-            console.log('added book: ', addedBook);
-            window.alert(`New book added: ${addedBook.title}`);
+            setNotification(`New book added: ${addedBook.title}`, 5);
             updateCacheWith(addedBook);
         }
     });

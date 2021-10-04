@@ -40,12 +40,6 @@ const Books = ({ show }) => {
         }
     }, [books, selectedGenre]);
 
-    // console.log('books: ', books);
-    // console.log('filtered books: ', filteredBooks);
-    // console.log('genres: ', genres);
-    // console.log('unique genres: ', uniqueGenres);
-    // console.log('selected genre: ', selectedGenre);
-
     if (!show) {
         return null;
     }
@@ -54,20 +48,18 @@ const Books = ({ show }) => {
         <div>
             <h2>books</h2>
             <br />
-            {/* <button onClick={() => setBooksFilter()}>refresh</button> */}
-
             <table>
                 <tbody>
                     <tr>
-                        <th></th>
+                        <th>title</th>
                         <th>author</th>
                         <th>published</th>
                     </tr>
                     {filteredBooks.map(a => (
-                        <tr key={a.title}>
-                            <td>{a.title}</td>
-                            <td>{a.author.name}</td>
-                            <td>{a.published}</td>
+                        <tr key={a.title} className='book'>
+                            <td className='book-title'>{a.title}</td>
+                            <td className='book-author'>{a.author.name}</td>
+                            <td className='book-published'>{a.published}</td>
                         </tr>
                     ))}
                 </tbody>
