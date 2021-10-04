@@ -62,7 +62,7 @@ const App = () => {
     };
 
     return (
-        <div>
+        <div className='page'>
             <div>
                 <button onClick={() => setPage('authors')}>authors</button>
                 <button onClick={() => setPage('books')}>books</button>
@@ -82,9 +82,6 @@ const App = () => {
                 <div>
                     <Notification message={message} />
                 </div>
-            </div>
-            <div>
-                <Notification setMessage={setMessage} />
             </div>
 
             <LoginForm

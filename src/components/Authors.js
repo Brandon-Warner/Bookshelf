@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+import './Authors.css';
 import { useMutation } from '@apollo/client';
 
 import { ALL_AUTHORS, ADD_BORN } from '../queries';
@@ -32,17 +33,17 @@ const Authors = ({ authors, show }) => {
 
     return (
         <div>
-            <div>
-                <h2>authors</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th></th>
+            <div className='table'>
+                <h2 className='table_title'>authors</h2>
+                <table className='table_table'>
+                    <tbody className='table_body'>
+                        <tr className='table_headers'>
+                            <th>name</th>
                             <th>born</th>
                             <th>books</th>
                         </tr>
                         {authors.map(a => (
-                            <tr key={a.name}>
+                            <tr key={a.name} className='table_data'>
                                 <td>{a.name}</td>
                                 <td>{a.born}</td>
                                 <td>{a.bookCount}</td>
@@ -51,16 +52,17 @@ const Authors = ({ authors, show }) => {
                     </tbody>
                 </table>
             </div>
-            <div>
-                <h3>Set Birth Year</h3>
-                <form onSubmit={submit}>
-                    name
+            <div className='birthyear'>
+                <h3 className='birthyear_title'>Set Birth Year</h3>
+                <form className='birthyear_form' onSubmit={submit}>
+                    <p className='birthyear_input_text'>name</p>
                     <Select
+                        className='birthyear_select'
                         defaultValue={name}
                         onChange={target => setName(target.value)}
                         options={options}
                     />
-                    born
+                    <p className='birthyear_input_text'>born</p>
                     <input value={born} onChange={({ target }) => setBorn(Number(target.value))} />
                     <button type='submit'>add</button>
                 </form>

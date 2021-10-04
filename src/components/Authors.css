@@ -1,0 +1,43 @@
+.table {
+    display: grid;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table_title,
+.birthyear_title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.table_headers {
+    text-align: left;
+    text-decoration: underline;
+    padding: 5px;
+    margin: 5px;
+}
+
+.table_table {
+    margin: 5px;
+    border: 5px;
+    padding: 15px;
+}
+
+.table_data {
+    border: 2px;
+}
+
+.birthyear {
+    display: grid;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.birthyear_form {
+    padding: 5px;
+}
+
+.birthyear_select {
+    color: black;
+}
