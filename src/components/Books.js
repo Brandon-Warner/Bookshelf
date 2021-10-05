@@ -45,18 +45,20 @@ const Books = ({ show }) => {
     }
 
     return (
-        <div>
+        <div className='container'>
             <div className='books_genres'>
                 <p>filter by genre: </p>
-                {uniqueGenres.map(genre => (
-                    <button
-                        key={genre}
-                        className='books_genres__button'
-                        onClick={() => setSelectedGenre(genre)}
-                    >
-                        {genre}
-                    </button>
-                ))}
+                <div className='books_genres__buttons'>
+                    {uniqueGenres.map(genre => (
+                        <button
+                            key={genre}
+                            className='books_genres__button'
+                            onClick={() => setSelectedGenre(genre)}
+                        >
+                            {genre}
+                        </button>
+                    ))}
+                </div>
             </div>
             <div className='books'>
                 <h2 className='books_title'>books</h2>

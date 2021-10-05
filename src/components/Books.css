@@ -1,8 +1,14 @@
-.books {
+.container {
     display: grid;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+    grid-template-columns: 15% 85%;
+}
+
+.books {
+    grid-column-start: 2, 3;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .books_title {
@@ -16,14 +22,17 @@
     margin: 5px;
 }
 .books_genres {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     margin-top: 25px;
+    grid-column-start: 1, 2;
 }
 .books_genres > p {
     padding: 10px;
+}
+.books_genres__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .books_genres__button {
@@ -31,10 +40,10 @@
     background-color: #12a0aa;
     border: none;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 16px;
     color: #ffffff;
-    padding: 20px;
-    width: 150px;
+    padding: 10px;
+    width: 125px;
     text-align: center;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;

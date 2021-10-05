@@ -1,43 +1,59 @@
-.table {
+.container-authors {
     display: grid;
-    position: relative;
-    max-width: 800px;
+    font-size: 20px;
+}
+table.authors_table {
+    table-layout: fixed;
+    max-width: 600px;
     margin: 0 auto;
+    border-collapse: collapse;
+    border: 3px solid #eee;
 }
 
-.table_title,
-.birthyear_title {
+thead {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+}
+
+thead th:nth-child(1) {
+    width: 70%;
+}
+thead th:nth-child(2) {
+    width: 20%;
+}
+thead th:nth-child(3) {
+    width: 10%;
+}
+
+th {
+    letter-spacing: 2px;
+}
+
+td {
+    letter-spacing: 1px;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+tbody tr {
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #75a7c9;
+}
+tbody tr:nth-child(odd) {
+    background: #72b4e0;
+}
+
+.authors_title {
     text-align: center;
     text-decoration: underline;
 }
 
-.table_headers {
+.authors_table__headers {
     text-align: left;
     text-decoration: underline;
-    padding: 5px;
-    margin: 5px;
-}
-
-.table_table {
-    margin: 5px;
-    border: 5px;
-    padding: 15px;
-}
-
-.table_data {
-    border: 2px;
-}
-
-.birthyear {
-    display: grid;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.birthyear_form {
-    padding: 5px;
-}
-
-.birthyear_select {
-    color: black;
 }

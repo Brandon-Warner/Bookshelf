@@ -32,19 +32,21 @@ const Authors = ({ authors, show }) => {
     });
 
     return (
-        <div>
-            <div className='table'>
-                <h2 className='table_title'>authors</h2>
-                <table className='table_table'>
-                    <tbody className='table_body'>
-                        <tr className='table_headers'>
-                            <th>name</th>
-                            <th>born</th>
-                            <th>books</th>
+        <div className='container-authors'>
+            <div className='authors'>
+                <h2 className='authors_title'>authors</h2>
+                <table className='authors_table'>
+                    <thead>
+                        <tr>
+                            <th scope='col'>name</th>
+                            <th scope='col'>born</th>
+                            <th scope='col'>books</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {authors.map(a => (
-                            <tr key={a.name} className='table_data'>
-                                <td>{a.name}</td>
+                            <tr key={a.name}>
+                                <th scope='row'>{a.name}</th>
                                 <td>{a.born}</td>
                                 <td>{a.bookCount}</td>
                             </tr>
@@ -53,7 +55,7 @@ const Authors = ({ authors, show }) => {
                 </table>
             </div>
             <div className='birthyear'>
-                <h3 className='birthyear_title'>Set Birth Year</h3>
+                <h3 className='birthyear_title'>Update Birth Year</h3>
                 <form className='birthyear_form' onSubmit={submit}>
                     <p className='birthyear_input_text'>name</p>
                     <Select
