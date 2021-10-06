@@ -1,0 +1,10 @@
+.popup {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 350px;
+    padding: 0;
+    margin-top: 0px;
+    border-radius: 4px;
+    background: #fef9c7;
+    color: black;
+}

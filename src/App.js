@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApolloClient, useQuery, useSubscription } from '@apollo/client';
 import { ALL_AUTHORS, ALL_BOOKS, ME, BOOK_ADDED } from './queries';
+import './App.css';
 import Authors from './components/Authors';
 import Books from './components/Books';
 import NewBook from './components/NewBook';
@@ -63,25 +64,43 @@ const App = () => {
 
     return (
         <div className='page'>
-            <div>
-                <button onClick={() => setPage('authors')}>authors</button>
-                <button onClick={() => setPage('books')}>books</button>
-                {token === null ? (
-                    <button onClick={() => setPage('login')}>login</button>
-                ) : (
-                    <button onClick={() => setPage('add')}>add book</button>
-                )}
+            <div className='navigation'>
+                <div className='buttons'>
+                    <button className='btn' onClick={() => setPage('authors')}>
+                        authors
+                    </button>
+                    <button className='btn' onClick={() => setPage('books')}>
+                        books
+                    </button>
+                    {token === null ? (
+                        <button className='btn' onClick={() => setPage('login')}>
+                            login
+                        </button>
+                    ) : (
+                        <button className='btn' onClick={() => setPage('add')}>
+                            add book
+                        </button>
+                    )}
 
-                {token === null ? null : (
-                    <button onClick={() => setPage('recommend')}>recommend</button>
-                )}
-                {token === null ? null : <button onClick={logout}>logout</button>}
-                {token === null ? (
-                    <button onClick={() => setPage('newUser')}>new user</button>
-                ) : null}
-                <div>
-                    <Notification message={message} />
+                    {token === null ? null : (
+                        <button className='btn' onClick={() => setPage('recommend')}>
+                            recommend
+                        </button>
+                    )}
+                    {token === null ? null : (
+                        <button className='btn' onClick={logout}>
+                            logout
+                        </button>
+                    )}
+                    {token === null ? (
+                        <button className='btn' onClick={() => setPage('newUser')}>
+                            new user
+                        </button>
+                    ) : null}
                 </div>
+            </div>
+            <div className='notification'>
+                <Notification message={message} />
             </div>
 
             <LoginForm
