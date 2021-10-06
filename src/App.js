@@ -92,7 +92,11 @@ const App = () => {
 
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
 
-            <Authors authors={result.data.allAuthors} show={page === 'authors'} />
+            <Authors
+                setNotification={setNotification}
+                authors={result.data.allAuthors}
+                show={page === 'authors'}
+            />
 
             <Recommend user={user} show={page === 'recommend'} />
 

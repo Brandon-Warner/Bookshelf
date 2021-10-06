@@ -1,13 +1,20 @@
 .container-authors {
     display: grid;
+    grid-template-columns: 25% 75%;
     font-size: 20px;
+    margin-top: 50px;
+}
+.authors {
+    grid-column-start: 2, 3;
 }
 table.authors_table {
     table-layout: fixed;
-    max-width: 600px;
+    max-width: 850px;
     margin: 0 auto;
     border-collapse: collapse;
     border: 3px solid #eee;
+    box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+        0.075em 0.075em 0.15em rgba(0, 0, 0, 0.1);
 }
 
 thead {
@@ -56,4 +63,17 @@ tbody tr:nth-child(odd) {
 .authors_table__headers {
     text-align: left;
     text-decoration: underline;
+}
+
+.birthyear {
+    grid-column-start: 1, 2;
+    margin: 0 auto;
+}
+
+.birthyear_select {
+    color: black;
+}
+
+.birthyear_input_content { 
+    padding: 5px;
 }

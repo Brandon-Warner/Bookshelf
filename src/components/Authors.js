@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 
 import { ALL_AUTHORS, ADD_BORN } from '../queries';
 
-const Authors = ({ authors, show }) => {
+const Authors = ({ authors, show, setNotification }) => {
     const [name, setName] = useState(null);
     const [born, setBorn] = useState('');
 
@@ -13,10 +13,21 @@ const Authors = ({ authors, show }) => {
         refetchQueries: [{ query: ALL_AUTHORS }]
     });
 
+    const bornValidation = born => {
+        if (isNaN(born)) {
+            return false;
+        }
+        return true;
+    };
+
     const submit = async event => {
         event.preventDefault();
 
-        addBorn({ variables: { name, born } });
+        if (!bornValidation(born)) {
+            setNotification('Please enter born as a Number!', 5);
+        } else {
+            addBorn({ variables: { name, born } });
+        }
 
         setName(null);
         setBorn('');
@@ -33,6 +44,25 @@ const Authors = ({ authors, show }) => {
 
     return (
         <div className='container-authors'>
+            <div className='birthyear'>
+                <h3 className='birthyear_title'>Update Birth Year</h3>
+                <form className='birthyear_form' onSubmit={submit}>
+                    <p className='birthyear_input_text'>name</p>
+                    <Select
+                        className='birthyear_select'
+                        defaultValue={name}
+                        onChange={target => setName(target.value)}
+                        options={options}
+                    />
+                    <p className='birthyear_input_text'>year they were born</p>
+                    <input
+                        className='birthyear_input_content'
+                        value={born}
+                        onChange={({ target }) => setBorn(target.value)}
+                    />
+                    <button type='submit'>add</button>
+                </form>
+            </div>
             <div className='authors'>
                 <h2 className='authors_title'>authors</h2>
                 <table className='authors_table'>
@@ -53,21 +83,6 @@ const Authors = ({ authors, show }) => {
                         ))}
                     </tbody>
                 </table>
-            </div>
-            <div className='birthyear'>
-                <h3 className='birthyear_title'>Update Birth Year</h3>
-                <form className='birthyear_form' onSubmit={submit}>
-                    <p className='birthyear_input_text'>name</p>
-                    <Select
-                        className='birthyear_select'
-                        defaultValue={name}
-                        onChange={target => setName(target.value)}
-                        options={options}
-                    />
-                    <p className='birthyear_input_text'>born</p>
-                    <input value={born} onChange={({ target }) => setBorn(Number(target.value))} />
-                    <button type='submit'>add</button>
-                </form>
             </div>
         </div>
     );
