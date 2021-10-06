@@ -16,32 +16,78 @@
     text-decoration: underline;
 }
 
-.books_table__headers {
-    text-align: left;
-    text-decoration: underline;
-    margin: 5px;
+table.books_table {
+    table-layout: fixed;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 3px solid #eee;
+    box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+        0.075em 0.075em 0.15em rgba(0, 0, 0, 0.1);
 }
+
+.books_table__headers {
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+}
+
+thead.books_table__headers th:nth-child(1) {
+    width: 70%;
+}
+
+thead.books_table__headers th:nth-child(2) {
+    width: 20%;
+}
+
+thead.books_table__headers th:nth-child(3) {
+    width: 10%;
+}
+
+tbody.books_table__body tr {
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+tbody.books_table__body tr:nth-child(even) {
+    background-color: #498c91;
+}
+
+tbody.books_table__body tr:nth-child(odd) {
+    background-color: #026670;
+}
+
+tbody.books_table__body tr:hover {
+    background-color: #fef9c7;
+    color: black;
+}
+
 .books_genres {
     margin-top: 25px;
     grid-column-start: 1, 2;
 }
+
 .books_genres > p {
     padding: 10px;
 }
+
 .books_genres__buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .books_genres__button {
     position: relative;
-    background-color: #12a0aa;
-    border: none;
+    background-color: #b9b8bb;
+    border: 1px solid black;
     border-radius: 4px;
+    margin-bottom: 3px;
     font-size: 16px;
-    color: #ffffff;
+    color: black;
     padding: 10px;
     width: 125px;
     text-align: center;
@@ -64,9 +110,15 @@
     opacity: 0;
     transition: all 0.8s;
 }
+
 .books_genres__button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s;
+}
+
+.books_genres__button:hover {
+    background: #498c91;
+    color: #ffffff;
 }

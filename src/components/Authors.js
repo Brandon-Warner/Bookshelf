@@ -66,14 +66,14 @@ const Authors = ({ authors, show, setNotification }) => {
             <div className='authors'>
                 <h2 className='authors_title'>authors</h2>
                 <table className='authors_table'>
-                    <thead>
+                    <thead className='authors_table__headers'>
                         <tr>
                             <th scope='col'>name</th>
                             <th scope='col'>born</th>
                             <th scope='col'>books</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='authors_table__body'>
                         {authors.map(a => (
                             <tr key={a.name}>
                                 <th scope='row'>{a.name}</th>

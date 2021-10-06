@@ -62,17 +62,18 @@ const Books = ({ show }) => {
             </div>
             <div className='books'>
                 <h2 className='books_title'>books</h2>
-                <br />
                 <table className='books_table'>
-                    <tbody className='books_table__body'>
-                        <tr className='books_table__headers'>
-                            <th>title</th>
-                            <th>author</th>
-                            <th>published</th>
+                    <thead className='books_table__headers'>
+                        <tr>
+                            <th scope='col'>title</th>
+                            <th scope='col'>author</th>
+                            <th scope='col'>published</th>
                         </tr>
+                    </thead>
+                    <tbody className='books_table__body'>
                         {filteredBooks.map(a => (
-                            <tr key={a.title} className='books_table__data'>
-                                <td>{a.title}</td>
+                            <tr key={a.title}>
+                                <th scope='row'>{a.title}</th>
                                 <td>{a.author.name}</td>
                                 <td>{a.published}</td>
                             </tr>
