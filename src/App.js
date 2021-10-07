@@ -12,12 +12,13 @@ import Notification from './components/Notification';
 
 const App = () => {
     const client = useApolloClient();
+
     const [token, setToken] = useState(null);
     const [page, setPage] = useState('authors');
+    const [message, setMessage] = useState(null);
+
     const result = useQuery(ALL_AUTHORS);
     const userResult = useQuery(ME);
-
-    const [message, setMessage] = useState(null);
 
     const updateCacheWith = addedBook => {
         const includedIn = (set, object) => set.map(p => p.id).includes(object.id);
@@ -67,7 +68,9 @@ const App = () => {
             <div className='navigation'>
                 <div className='buttons'>
                     {token === null ? (
-                        <LoginForm setToken={setToken} setNotification={setNotification} />
+                        <button className='btn' onClick={() => setPage('login')}>
+                            login
+                        </button>
                     ) : (
                         <button className='btn' onClick={() => setPage('add')}>
                             add book
@@ -103,6 +106,12 @@ const App = () => {
             <div className='notification'>
                 <Notification message={message} />
             </div>
+
+            <LoginForm
+                setToken={setToken}
+                setNotification={setNotification}
+                show={page === 'login'}
+            />
 
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
 
