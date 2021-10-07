@@ -65,9 +65,7 @@ const App = () => {
             <div className='navigation'>
                 <div className='buttons'>
                     {token === null ? (
-                        <button className='btn' onClick={() => setPage('login')}>
-                            login
-                        </button>
+                        <LoginForm setToken={setToken} setNotification={setNotification} />
                     ) : (
                         <button className='btn' onClick={() => setPage('add')}>
                             add book
@@ -103,12 +101,6 @@ const App = () => {
             <div className='notification'>
                 <Notification message={message} />
             </div>
-
-            <LoginForm
-                setToken={setToken}
-                setNotification={setNotification}
-                show={page === 'login'}
-            />
 
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
 

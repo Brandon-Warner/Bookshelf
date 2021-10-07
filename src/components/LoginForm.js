@@ -17,10 +17,6 @@ const LoginForm = ({ setToken, setNotification, show }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result.data]);
 
-    if (!show) {
-        return null;
-    }
-
     const submit = async e => {
         e.preventDefault();
         login({ variables: { username, password } });
