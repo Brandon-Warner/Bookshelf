@@ -10,11 +10,14 @@ const Authors = ({ authors, show, setNotification }) => {
     const [born, setBorn] = useState('');
 
     const [addBorn] = useMutation(ADD_BORN, {
-        refetchQueries: [{ query: ALL_AUTHORS }]
+        refetchQueries: [{ query: ALL_AUTHORS }],
+        onError: () => {
+            setNotification('Error setting birth year, please try again');
+        }
     });
 
     const bornValidation = born => {
-        if (isNaN(born)) {
+        if (isNaN(born) || born === '') {
             return false;
         }
         return true;
