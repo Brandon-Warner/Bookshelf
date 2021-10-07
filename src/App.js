@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApolloClient, useQuery, useSubscription } from '@apollo/client';
-import { ALL_AUTHORS, ALL_BOOKS, ME, BOOK_ADDED } from './queries';
+import { ALL_AUTHORS, ALL_BOOKS, BOOK_ADDED } from './queries';
 import './App.css';
 import Authors from './components/Authors';
 import Books from './components/Books';
@@ -18,7 +18,6 @@ const App = () => {
     const [message, setMessage] = useState(null);
 
     const result = useQuery(ALL_AUTHORS);
-    const userResult = useQuery(ME);
 
     const updateCacheWith = addedBook => {
         const includedIn = (set, object) => set.map(p => p.id).includes(object.id);
@@ -46,8 +45,6 @@ const App = () => {
     if (result.loading) {
         return <div>loading...</div>;
     }
-
-    const user = userResult.data.me;
 
     const logout = () => {
         setToken(null);
@@ -121,7 +118,7 @@ const App = () => {
                 show={page === 'authors'}
             />
 
-            <Recommend user={user} show={page === 'recommend'} />
+            <Recommend token={token} setPage={setPage} show={page === 'recommend'} />
 
             <Books show={page === 'books'} />
 
