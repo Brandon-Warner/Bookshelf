@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../queries';
-
+import './LoginForm.css'
 const LoginForm = ({ setToken, setNotification, show }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,9 +17,9 @@ const LoginForm = ({ setToken, setNotification, show }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result.data]);
 
-    if (!show) {
-        return null;
-    }
+    // if (!show) {
+    //     return null;
+    // }
 
     const submit = async e => {
         e.preventDefault();
@@ -30,11 +30,10 @@ const LoginForm = ({ setToken, setNotification, show }) => {
     };
 
     return (
-        <div>
+        <div className='login'>
             <form onSubmit={submit}>
                 username
                 <input value={username} onChange={({ target }) => setUsername(target.value)} />
-                <br />
                 password
                 <input
                     type='password'

@@ -66,16 +66,8 @@ const App = () => {
         <div className='page'>
             <div className='navigation'>
                 <div className='buttons'>
-                    <button className='btn' onClick={() => setPage('authors')}>
-                        authors
-                    </button>
-                    <button className='btn' onClick={() => setPage('books')}>
-                        books
-                    </button>
                     {token === null ? (
-                        <button className='btn' onClick={() => setPage('login')}>
-                            login
-                        </button>
+                        <LoginForm setToken={setToken} setNotification={setNotification} />
                     ) : (
                         <button className='btn' onClick={() => setPage('add')}>
                             add book
@@ -87,27 +79,30 @@ const App = () => {
                             recommend
                         </button>
                     )}
-                    {token === null ? null : (
-                        <button className='btn' onClick={logout}>
-                            logout
-                        </button>
-                    )}
+
                     {token === null ? (
                         <button className='btn' onClick={() => setPage('newUser')}>
                             new user
                         </button>
                     ) : null}
+
+                    <button className='btn' onClick={() => setPage('authors')}>
+                        authors
+                    </button>
+                    <button className='btn' onClick={() => setPage('books')}>
+                        books
+                    </button>
+
+                    {token === null ? null : (
+                        <button className='btn' onClick={logout}>
+                            logout
+                        </button>
+                    )}
                 </div>
             </div>
             <div className='notification'>
                 <Notification message={message} />
             </div>
-
-            <LoginForm
-                setToken={setToken}
-                setNotification={setNotification}
-                show={page === 'login'}
-            />
 
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
 

@@ -1,10 +1,15 @@
 .navigation {
     background-color: black;
     height: 60px;
+    
+}
+
+.buttons {
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: center;
-    flex-direction: row-reverse;
+    box-sizing: border-box;
+    margin-right: 10px;
 }
 
 .btn {
