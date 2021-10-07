@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { FAV_GENRE_BOOK, ME } from '../queries';
+import './Recommend.css';
 
 const Recommend = ({ show, token, setPage }) => {
-    console.log('token', token);
+    // console.log('token', token);
     const [getUser, userResults] = useLazyQuery(ME);
-    console.log('userResults: ', userResults);
+    // console.log('userResults: ', userResults);
     const booksResult = useQuery(FAV_GENRE_BOOK, {
         variables: {
             genre:

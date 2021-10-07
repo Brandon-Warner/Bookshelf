@@ -85,4 +85,27 @@ tbody.authors_table__body tr:hover {
 .birthyear_input_content {
     padding: 5px;
     font-family: 'Nunito', sans-serif;
+    border-radius: 4px;
+    border: none;
+}
+
+.birthyear_input_content:focus {
+    outline: none;
+}
+
+.birthyear_form__button {
+    font-family: 'Nunito', sans-serif;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 15px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    background: none;
+    color: black;
+}
+
+.birthyear_form__button:hover {
+    cursor: pointer;
+    color: #498c91;
+    border: 1px solid #498c91;
 }

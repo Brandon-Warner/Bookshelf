@@ -60,7 +60,9 @@ const Authors = ({ authors, show, setNotification }) => {
                         value={born}
                         onChange={({ target }) => setBorn(target.value)}
                     />
-                    <button type='submit'>add</button>
+                    <button className='birthyear_form__button' type='submit'>
+                        add
+                    </button>
                 </form>
             </div>
             <div className='authors'>

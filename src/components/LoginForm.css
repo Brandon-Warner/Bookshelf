@@ -1,3 +1,37 @@
 .login {
     box-sizing: border-box;
 }
+
+.login-form {
+    margin: 0 5px;
+}
+
+.login-form__username,
+.login-form__password {
+    padding: 5px;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16;
+    border: none;
+    margin: 0 5px;
+}
+
+.login-form__button {
+    box-sizing: border-box;
+    margin: 10px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-form__button:hover {
+    cursor: pointer;
+    color: #498c91;
+}
+
+.login-form__password:focus, .login-form__username:focus {
+    outline: none;
+}

@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../queries';
-import './LoginForm.css'
-const LoginForm = ({ setToken, setNotification, show }) => {
+import './LoginForm.css';
+
+const LoginForm = ({ setToken, setNotification }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const [login, result] = useMutation(LOGIN);
+    const [login, result] = useMutation(LOGIN, {
+        onError: () => {
+            setNotification(`Username/password is not valid`, 5);
+        },
+        onCompleted: () => {
+            setNotification(`Logged in successfully!`, 5);
+        }
+    });
+
+    console.log('result: ', result);
 
     useEffect(() => {
         if (result.data) {
@@ -17,26 +27,44 @@ const LoginForm = ({ setToken, setNotification, show }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result.data]);
 
+    const validateInput = input => {
+        if (input === '') {
+            return false;
+        }
+        return true;
+    };
+
     const submit = async e => {
         e.preventDefault();
-        login({ variables: { username, password } });
-        setNotification(`${username} is logged in!`, 5);
+        if (!validateInput(username) || !validateInput(password)) {
+            setNotification('Username/password is not valid', 5);
+        } else {
+            login({ variables: { username, password } });
+        }
+
         setUsername('');
         setPassword('');
     };
 
     return (
         <div className='login'>
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className='login-form'>
                 username
-                <input value={username} onChange={({ target }) => setUsername(target.value)} />
+                <input
+                    className='login-form__username'
+                    value={username}
+                    onChange={({ target }) => setUsername(target.value)}
+                />
                 password
                 <input
+                    className='login-form__password'
                     type='password'
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                 />
-                <button type='submit'>login</button>
+                <button className='login-form__button' type='submit'>
+                    login
+                </button>
             </form>
         </div>
     );
