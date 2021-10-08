@@ -1,9 +1,7 @@
 .navigation {
-    background-color: black;
+    background: linear-gradient(180deg, black, #b9b8bb);
     height: 60px;
-    
 }
-
 .buttons {
     display: flex;
     justify-content: left;
@@ -15,9 +13,9 @@
 .btn {
     border: 0;
     padding: 10px;
-    margin: 10px;
+    margin: 5px 5px 0;
     color: white;
-    background: black;
+    background: none;
     font-size: 22px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -26,11 +24,4 @@
 
 .btn:hover {
     color: #498c91;
-}
-
-.notification {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row-reverse;
 }

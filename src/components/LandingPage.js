@@ -10,10 +10,13 @@ const LandingPage = ({ show }) => {
             className='home'
             style={{
                 backgroundImage: `url(${background})`,
-                backgroundSize: 'contain',
+                backgroundSize: 'cover',
                 height: '100vh',
+                width: '100vw',
                 padding: '0',
-                margin: '0'
+                margin: '0',
+                position: 'absolute',
+                textAlign: 'center'
             }}
         >
             <h1>Welcome to Bookshelf!</h1>
