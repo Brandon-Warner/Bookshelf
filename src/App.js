@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useApolloClient, useSubscription } from '@apollo/client';
 import { ALL_BOOKS, BOOK_ADDED } from './queries';
-import Authors from './components/Authors';
-import Books from './components/Books';
+import Authors from './components/Authors/Authors';
+import Books from './components/Books/Books';
 import NewBook from './components/NewBook';
-import Recommend from './components/Recommend';
+import Recommend from './components/Recommend/Recommend';
 import NewUser from './components/NewUser';
-import Notification from './components/Notification';
-import LandingPage from './components/LandingPage';
-import Navigation from './components/Navigation';
+import Notification from './components/Notification/Notification';
+import LandingPage from './components/LandingPage/LandingPage';
+import Navigation from './components/Navigation/Navigation';
 
 const App = () => {
     const client = useApolloClient();

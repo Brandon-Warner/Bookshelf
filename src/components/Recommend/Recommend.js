@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/client';
-import { FAV_GENRE_BOOK, ME } from '../queries';
+import { FAV_GENRE_BOOK, ME } from '../../queries';
 import './Recommend.css';
 
 const Recommend = ({ show, token, setPage }) => {

@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React, { useState, useEffect } from 'react';
 import './Books.css';
-import { ALL_BOOKS } from '../queries';
+import { ALL_BOOKS } from '../../queries';
 
 const Books = ({ show }) => {
     const [books, setBooks] = useState([]);

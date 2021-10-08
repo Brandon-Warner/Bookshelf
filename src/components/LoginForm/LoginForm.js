@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../queries';
+import { LOGIN } from '../../queries';
 import './LoginForm.css';
 
 const LoginForm = ({ setToken, setNotification }) => {

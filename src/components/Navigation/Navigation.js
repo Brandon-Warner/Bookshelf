@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import LoginForm from './LoginForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 const Navigation = ({ token, setToken, setPage, setNotification, logout }) => {
     return (

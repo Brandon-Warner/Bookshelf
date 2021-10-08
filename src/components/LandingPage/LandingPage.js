@@ -1,5 +1,5 @@
 import React from 'react';
-import background from '../images/alfons-morales-YLSwjSy7stw-unsplash.jpg';
+import background from '../../images/alfons-morales-YLSwjSy7stw-unsplash.jpg';
 
 const LandingPage = ({ show }) => {
     if (!show) {
