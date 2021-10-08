@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import './Authors.css';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { ALL_AUTHORS, ADD_BORN } from '../queries';
 
-const Authors = ({ authors, show, setNotification }) => {
+const Authors = ({ show, setNotification }) => {
+    const [authors, setAuthors] = useState([]);
     const [name, setName] = useState(null);
     const [born, setBorn] = useState('');
-
+    const result = useQuery(ALL_AUTHORS);
     const [addBorn] = useMutation(ADD_BORN, {
         refetchQueries: [{ query: ALL_AUTHORS }],
         onError: () => {
             setNotification('Error setting birth year, please try again');
         }
     });
+
+    useEffect(() => {
+        if (result.data) {
+            setAuthors(result.data.allAuthors);
+        }
+    }, [result.data]);
 
     const bornValidation = born => {
         if (isNaN(born) || born === '') {
@@ -35,12 +42,10 @@ const Authors = ({ authors, show, setNotification }) => {
         setName(null);
         setBorn('');
     };
+
     if (!show) {
         return null;
     }
-
-    // const authors = result.data.allAuthors
-
     const options = authors.map(a => {
         return { value: a.name, label: a.name };
     });

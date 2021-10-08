@@ -20,7 +20,7 @@ const Recommend = ({ show, token, setPage }) => {
         if (token !== null) {
             getUser();
         } else if (!token) {
-            setPage('authors');
+            setPage('landingPage');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);

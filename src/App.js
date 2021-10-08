@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useApolloClient, useQuery, useSubscription } from '@apollo/client';
-import { ALL_AUTHORS, ALL_BOOKS, BOOK_ADDED } from './queries';
+import { useApolloClient, useSubscription } from '@apollo/client';
+import { ALL_BOOKS, BOOK_ADDED } from './queries';
 import './App.css';
 import Authors from './components/Authors';
 import Books from './components/Books';
@@ -9,15 +9,14 @@ import LoginForm from './components/LoginForm';
 import Recommend from './components/Recommend';
 import NewUser from './components/NewUser';
 import Notification from './components/Notification';
+import LandingPage from './components/LandingPage';
 
 const App = () => {
     const client = useApolloClient();
 
     const [token, setToken] = useState(null);
-    const [page, setPage] = useState('authors');
+    const [page, setPage] = useState('landingPage');
     const [message, setMessage] = useState(null);
-
-    const result = useQuery(ALL_AUTHORS);
 
     const updateCacheWith = addedBook => {
         const includedIn = (set, object) => set.map(p => p.id).includes(object.id);
@@ -42,10 +41,6 @@ const App = () => {
         }
     });
 
-    if (result.loading) {
-        return <div>loading...</div>;
-    }
-
     const logout = () => {
         setToken(null);
         localStorage.clear();
@@ -64,6 +59,9 @@ const App = () => {
         <div className='page'>
             <div className='navigation'>
                 <div className='buttons'>
+                    <button className='btn' onClick={() => setPage('landingPage')}>
+                        home
+                    </button>
                     {token === null ? (
                         <LoginForm setToken={setToken} setNotification={setNotification} />
                     ) : (
@@ -102,13 +100,11 @@ const App = () => {
                 <Notification message={message} />
             </div>
 
+            <LandingPage show={page === 'landingPage'} />
+
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
 
-            <Authors
-                setNotification={setNotification}
-                authors={result.data.allAuthors}
-                show={page === 'authors'}
-            />
+            <Authors setNotification={setNotification} show={page === 'authors'} />
 
             <Recommend token={token} setPage={setPage} show={page === 'recommend'} />
 
