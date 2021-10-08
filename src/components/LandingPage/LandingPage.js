@@ -19,7 +19,9 @@ const LandingPage = ({ show }) => {
                 textAlign: 'center'
             }}
         >
-            <h1>Welcome to Bookshelf!</h1>
+            <div className='home-header'>
+                <h1>Welcome to Bookshelf!</h1>
+            </div>
         </div>
     );
 };

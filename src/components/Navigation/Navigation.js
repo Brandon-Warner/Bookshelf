@@ -9,6 +9,12 @@ const Navigation = ({ token, setToken, setPage, setNotification, logout }) => {
                 <button className='btn' onClick={() => setPage('landingPage')}>
                     home
                 </button>
+                <button className='btn' onClick={() => setPage('authors')}>
+                    authors
+                </button>
+                <button className='btn' onClick={() => setPage('books')}>
+                    books
+                </button>
                 {token === null ? (
                     <LoginForm setToken={setToken} setNotification={setNotification} />
                 ) : (
@@ -29,12 +35,7 @@ const Navigation = ({ token, setToken, setPage, setNotification, logout }) => {
                     </button>
                 ) : null}
 
-                <button className='btn' onClick={() => setPage('authors')}>
-                    authors
-                </button>
-                <button className='btn' onClick={() => setPage('books')}>
-                    books
-                </button>
+                
 
                 {token === null ? null : (
                     <button className='btn' onClick={logout}>
