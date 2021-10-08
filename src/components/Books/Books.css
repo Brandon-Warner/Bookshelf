@@ -68,6 +68,7 @@ tbody.books_table__body tr:hover {
 .books_genres {
     margin-top: 25px;
     grid-column-start: 1, 2;
+    
 }
 
 .books_genres > p {
@@ -82,6 +83,7 @@ tbody.books_table__body tr:hover {
 
 .books_genres__button {
     position: relative;
+    font-family: 'Exo', sans-serif;
     background-color: #b9b8bb;
     border: 1px solid black;
     border-radius: 4px;

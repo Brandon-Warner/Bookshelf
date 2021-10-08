@@ -1,5 +1,6 @@
 import React from 'react';
 import background from '../../images/alfons-morales-YLSwjSy7stw-unsplash.jpg';
+import './LandingPage.css';
 
 const LandingPage = ({ show }) => {
     if (!show) {
@@ -11,6 +12,7 @@ const LandingPage = ({ show }) => {
             style={{
                 backgroundImage: `url(${background})`,
                 backgroundSize: 'cover',
+                opacity: '85%',
                 height: '100vh',
                 width: '100vw',
                 padding: '0',
@@ -20,7 +22,9 @@ const LandingPage = ({ show }) => {
             }}
         >
             <div className='home-header'>
-                <h1>Welcome to Bookshelf!</h1>
+                <h1>
+                    <i>Welcome to Bookshelf!</i>
+                </h1>
             </div>
         </div>
     );

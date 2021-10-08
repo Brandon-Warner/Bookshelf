@@ -1,4 +1,25 @@
-div.home-header {
-    display: block;
-    top: 100px;
+.home-header {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-top: 200px;
+    font-size: 80px;
+    color: white;
+    animation: fadein;
+    animation-duration: 1.5s;
+    font-family: 'Exo', sans-serif;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        font-size: 120px;
+    }
+
+    to {
+        width: 100%;
+        font-size: 80px;
+    }
 }
