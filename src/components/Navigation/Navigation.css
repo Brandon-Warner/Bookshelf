@@ -1,10 +1,11 @@
 .navigation {
-    background: linear-gradient(180deg, black, #b9b8bb);
+    background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
+    opacity: 1;
     height: 60px;
 }
 .buttons {
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
     margin-right: 10px;
@@ -20,6 +21,7 @@
     font-weight: bold;
     letter-spacing: 2px;
     cursor: pointer;
+    text-shadow: 2px 2px 2px black;
 }
 
 .btn:hover {

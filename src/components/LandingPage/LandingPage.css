@@ -1,3 +1,8 @@
+.home{
+    display: flex;
+
+}
+
 .home-header {
     max-width: 1400px;
     margin: 0 auto;
@@ -10,6 +15,7 @@ h1 {
     animation: fadein;
     animation-duration: 1.5s;
     font-family: 'Exo', sans-serif;
+    text-shadow: 3px 3px 3px black;
 }
 
 @keyframes fadein {

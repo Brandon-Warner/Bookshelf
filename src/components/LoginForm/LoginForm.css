@@ -1,9 +1,11 @@
 .login {
     box-sizing: border-box;
+    text-shadow: 2px 2px 2px black;
 }
 
 .login-form {
     margin: 5px 5px 0;
+    text-shadow: 2px 2px 2px black;
 }
 
 .login-form__username,
@@ -25,6 +27,7 @@
     font-size: 22px;
     font-weight: bold;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 2px black;
 }
 
 .login-form__button:hover {
@@ -32,6 +35,7 @@
     color: #498c91;
 }
 
-.login-form__password:focus, .login-form__username:focus {
+.login-form__password:focus,
+.login-form__username:focus {
     outline: none;
 }
