@@ -2,7 +2,7 @@ import React from 'react';
 import './Navigation.css';
 import LoginForm from '../LoginForm/LoginForm';
 
-const Navigation = ({ token, setToken, setPage, setNotification, logout }) => {
+const Navigation = ({ token, setToken, setPage, setUser, setNotification, logout }) => {
     return (
         <div className='navigation'>
             <div className='buttons'>
@@ -16,7 +16,7 @@ const Navigation = ({ token, setToken, setPage, setNotification, logout }) => {
                     books
                 </button>
                 {token === null ? (
-                    <LoginForm setToken={setToken} setNotification={setNotification} />
+                    <LoginForm setToken={setToken} setUser={setUser} setNotification={setNotification} />
                 ) : (
                     <button className='btn' onClick={() => setPage('add')}>
                         add book

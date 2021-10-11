@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { NEW_BOOK } from '../queries';
+import { NEW_BOOK } from '../../queries';
+import './NewBook.css';
 
 const NewBook = ({ updateCacheWith, show }) => {
     const [title, setTitle] = useState('');
@@ -39,7 +40,7 @@ const NewBook = ({ updateCacheWith, show }) => {
     };
 
     return (
-        <div>
+        <div className='new-book'>
             <form onSubmit={submit}>
                 <div>
                     title
