@@ -1,12 +1,14 @@
 .container-authors {
     display: grid;
+    background-color: #b9b8bbe3;
+
     grid-template-columns: 20% 80%;
     font-size: 20px;
-    margin-top: 50px;
 }
 
 .authors {
     grid-column-start: 2, 3;
+    margin-top: 50px;
 }
 
 table.authors_table {

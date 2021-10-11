@@ -1,6 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 15% 85%;
+    background-color: #b9b8bbe3;
 }
 
 .books {

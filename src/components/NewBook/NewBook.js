@@ -56,6 +56,16 @@ const NewBook = ({ updateCacheWith, setNotification, show }) => {
         setGenre('');
     };
 
+    const cancel = e => {
+        e.preventDefault();
+
+        setTitle('');
+        setPublished('');
+        setAuthor('');
+        setGenres([]);
+        setGenre('');
+    };
+
     return (
         <div className='new-book'>
             <form className='new-book__form' onSubmit={submit}>
@@ -101,6 +111,9 @@ const NewBook = ({ updateCacheWith, setNotification, show }) => {
                 <div className='new-book__form-item'>genres: {genres.join(' ')}</div>
                 <button className='new-book__form-item__submit-button' type='submit'>
                     add book
+                </button>
+                <button className='new-book__form-item__cancel-button' onClick={cancel}>
+                    cancel
                 </button>
             </form>
         </div>

@@ -14,6 +14,8 @@
     padding: 40px;
     border-radius: 4px;
     background-color: #b9b8bb;
+    box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+        0.075em 0.075em 0.15em rgba(0, 0, 0, 0.1);
 }
 
 .new-book__form-item {
@@ -70,6 +72,21 @@
     overflow: hidden;
 }
 
+.new-book__form-item__cancel-button {
+    position: relative;
+    font-size: 14px;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    outline: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-family: 'Exo', sans-serif;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    overflow: hidden;
+}
+
 .new-book__form-item__genre-button:hover,
 .new-book__form-item__submit-button:hover {
     cursor: pointer;
@@ -77,8 +94,15 @@
     color: #ffffff;
 }
 
+.new-book__form-item__cancel-button:hover {
+    cursor: pointer;
+    background: #7e2c2c;
+    color: #ffffff;
+}
+
 .new-book__form-item__genre-button:after,
-.new-book__form-item__submit-button:after {
+.new-book__form-item__submit-button:after,
+.new-book__form-item__cancel-button:after {
     content: '';
     background: #a9ebf7;
     display: block;
@@ -92,7 +116,8 @@
 }
 
 .new-book__form-item__genre-button:active:after,
-.new-book__form-item__submit-button:active:after {
+.new-book__form-item__submit-button:active:after,
+.new-book__form-item__cancel-button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
