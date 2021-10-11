@@ -21,6 +21,7 @@
 .login-form__button {
     box-sizing: border-box;
     margin: 5px 5px 0;
+    padding: 10px;
     color: white;
     background: none;
     border: none;

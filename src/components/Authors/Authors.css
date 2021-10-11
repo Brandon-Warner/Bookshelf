@@ -1,7 +1,8 @@
 .container-authors {
     display: grid;
     background-color: #b9b8bbe3;
-
+    width: 95vw;
+    margin: 0 auto;
     grid-template-columns: 20% 80%;
     font-size: 20px;
 }

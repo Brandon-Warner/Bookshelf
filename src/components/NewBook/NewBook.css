@@ -13,7 +13,7 @@
     width: 375px;
     padding: 40px;
     border-radius: 4px;
-    background-color: #b9b8bb;
+    background-color: #b9b8bbe3;
     box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
         0.075em 0.075em 0.15em rgba(0, 0, 0, 0.1);
 }
@@ -21,6 +21,7 @@
 .new-book__form-item {
     margin-bottom: 25px;
     display: flex;
+    text-shadow: 1px 1px 1px black;
 }
 
 .new-book__form-item__input {
