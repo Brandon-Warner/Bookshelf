@@ -8,7 +8,12 @@
 }
 
 .new-book__form {
-    padding: 5px;
+    align-items: center;
+    height: 400px;
+    width: 375px;
+    padding: 40px;
+    border-radius: 4px;
+    background-color: #b9b8bb;
 }
 
 .new-book__form-item {

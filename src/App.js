@@ -90,7 +90,11 @@ const App = () => {
 
             <Books show={page === 'books'} />
 
-            <NewBook updateCacheWith={updateCacheWith} show={page === 'add'} />
+            <NewBook
+                setNotification={setNotification}
+                updateCacheWith={updateCacheWith}
+                show={page === 'add'}
+            />
         </div>
     );
 };

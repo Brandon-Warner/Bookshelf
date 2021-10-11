@@ -1,6 +1,11 @@
 body {
-    background-color: #b9b8bb;
-
+    /* background-color: #b9b8bb; */
+    background-image: url('./images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    
+    position: absolute;
     color: #eee;
     font-family: 'Exo', sans-serif;
     padding: 0;

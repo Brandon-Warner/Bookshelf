@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { NEW_BOOK } from '../../queries';
 import './NewBook.css';
 
-const NewBook = ({ updateCacheWith, show }) => {
+const NewBook = ({ updateCacheWith, setNotification, show }) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [published, setPublished] = useState('');
@@ -21,10 +21,27 @@ const NewBook = ({ updateCacheWith, show }) => {
         return null;
     }
 
+    const validateInput = input => {
+        if (input === '') {
+            return false;
+        }
+        return true;
+    };
+
     const submit = async event => {
         event.preventDefault();
 
-        newBook({ variables: { title, author, published, genres } });
+        if (
+            !validateInput(title) ||
+            !validateInput(author) ||
+            !validateInput(genres) ||
+            !validateInput(published)
+        ) {
+            setNotification('Invalid entries, be sure form is complete before submitting', 5);
+        } else {
+            newBook({ variables: { title, author, published, genres } });
+        }
+
         console.log('add book...');
 
         setTitle('');
@@ -41,7 +58,7 @@ const NewBook = ({ updateCacheWith, show }) => {
 
     return (
         <div className='new-book'>
-            <form classname='new-book__form' onSubmit={submit}>
+            <form className='new-book__form' onSubmit={submit}>
                 <div className='new-book__form-item'>
                     title
                     <input
@@ -73,12 +90,18 @@ const NewBook = ({ updateCacheWith, show }) => {
                         value={genre}
                         onChange={({ target }) => setGenre(target.value)}
                     />
-                    <button className='new-book__form-item__genre-button' onClick={addGenre} type='button'>
+                    <button
+                        className='new-book__form-item__genre-button'
+                        onClick={addGenre}
+                        type='button'
+                    >
                         add genre
                     </button>
                 </div>
                 <div className='new-book__form-item'>genres: {genres.join(' ')}</div>
-                <button className='new-book__form-item__submit-button' type='submit'>create book</button>
+                <button className='new-book__form-item__submit-button' type='submit'>
+                    add book
+                </button>
             </form>
         </div>
     );
