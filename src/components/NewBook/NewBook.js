@@ -78,7 +78,7 @@ const NewBook = ({ updateCacheWith, show }) => {
                     </button>
                 </div>
                 <div className='new-book__form-item'>genres: {genres.join(' ')}</div>
-                <button type='submit'>create book</button>
+                <button className='new-book__form-item__submit-button' type='submit'>create book</button>
             </form>
         </div>
     );
