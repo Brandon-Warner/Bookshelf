@@ -41,30 +41,43 @@ const NewBook = ({ updateCacheWith, show }) => {
 
     return (
         <div className='new-book'>
-            <form onSubmit={submit}>
-                <div>
+            <form classname='new-book__form' onSubmit={submit}>
+                <div className='new-book__form-item'>
                     title
-                    <input value={title} onChange={({ target }) => setTitle(target.value)} />
+                    <input
+                        className='new-book__form-item__input'
+                        value={title}
+                        onChange={({ target }) => setTitle(target.value)}
+                    />
                 </div>
-                <div>
+                <div className='new-book__form-item'>
                     author
-                    <input value={author} onChange={({ target }) => setAuthor(target.value)} />
+                    <input
+                        className='new-book__form-item__input'
+                        value={author}
+                        onChange={({ target }) => setAuthor(target.value)}
+                    />
                 </div>
-                <div>
+                <div className='new-book__form-item'>
                     published
                     <input
+                        className='new-book__form-item__input'
                         type='number'
                         value={published}
                         onChange={({ target }) => setPublished(Number(target.value))}
                     />
                 </div>
-                <div>
-                    <input value={genre} onChange={({ target }) => setGenre(target.value)} />
-                    <button onClick={addGenre} type='button'>
+                <div className='new-book__form-item'>
+                    <input
+                        className='new-book__form-item__genre'
+                        value={genre}
+                        onChange={({ target }) => setGenre(target.value)}
+                    />
+                    <button className='new-book__form-item__genre-button' onClick={addGenre} type='button'>
                         add genre
                     </button>
                 </div>
-                <div>genres: {genres.join(' ')}</div>
+                <div className='new-book__form-item'>genres: {genres.join(' ')}</div>
                 <button type='submit'>create book</button>
             </form>
         </div>

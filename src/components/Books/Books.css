@@ -84,7 +84,7 @@ tbody.books_table__body tr:hover {
 .books_genres__button {
     position: relative;
     font-family: 'Exo', sans-serif;
-    background-color: #b9b8bb;
+    background: none;
     border: 1px solid black;
     border-radius: 4px;
     margin-bottom: 3px;

@@ -6,7 +6,6 @@ import './LoginForm.css';
 const LoginForm = ({ setToken, setNotification }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [getUser, userResult] = useLazyQuery(ME);
     const [login, result] = useMutation(LOGIN, {
         onError: () => {
             setNotification(`Username/password is not valid`, 5);
@@ -15,9 +14,6 @@ const LoginForm = ({ setToken, setNotification }) => {
             setNotification(`Logged in successfully!`, 5);
         }
     });
-
-    // console.log('result: ', result);
-    // console.log('userResult: ', userResult);
 
     useEffect(() => {
         if (result.data) {

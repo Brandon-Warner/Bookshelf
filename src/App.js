@@ -25,7 +25,7 @@ const App = () => {
             getUser();
         }
         userResults.data ? setUser(userResults.data.me) : setUser(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, userResults.data]);
 
     console.log('user: ', user);
@@ -74,7 +74,6 @@ const App = () => {
                 token={token}
                 setToken={setToken}
                 setPage={setPage}
-                setUser={setUser}
                 setNotification={setNotification}
                 logout={logout}
             />
