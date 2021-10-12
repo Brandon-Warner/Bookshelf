@@ -24,21 +24,19 @@ const errorStyle = {
 };
 
 const Notification = ({ message, type }) => {
-    if (message === null) {
-        return null;
+    if (type === 'success') {
+        return (
+            <div style={successStyle}>
+                <h3 className='popup'>{message}</h3>
+            </div>
+        );
+    } else if (type === 'error') {
+        return (
+            <div style={errorStyle}>
+                <h3 className='popup'>{message}</h3>
+            </div>
+        );
     }
-    return (
-        <div style={successStyle}>
-            <h3 className='popup'>{message}</h3>
-        </div>
-    );
-    //     } else if (type === 'error') {
-    //         return (
-    //             <div style={errorStyle}>
-    //                 <h3 className='popup'>{message}</h3>
-    //             </div>
-    //         );
-    //     }
-    //     return null;
+    return null;
 };
 export default Notification;

@@ -37,7 +37,11 @@ const NewBook = ({ updateCacheWith, setNotification, show }) => {
             !validateInput(genres) ||
             !validateInput(published)
         ) {
-            setNotification('Invalid entries, be sure form is complete before submitting', 5);
+            setNotification(
+                'Invalid entries, be sure form is complete before submitting',
+                'error',
+                5
+            );
         } else {
             newBook({ variables: { title, author, published, genres } });
         }

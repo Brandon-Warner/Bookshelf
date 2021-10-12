@@ -8,10 +8,10 @@ const LoginForm = ({ setToken, setNotification }) => {
     const [password, setPassword] = useState('');
     const [login, result] = useMutation(LOGIN, {
         onError: () => {
-            setNotification(`Username/password is not valid`, 5);
+            setNotification(`Username/password is not valid`, 'error', 5);
         },
         onCompleted: () => {
-            setNotification(`Logged in successfully!`, 5);
+            setNotification(`Logged in successfully!`, 'success', 5);
         }
     });
 
@@ -34,7 +34,7 @@ const LoginForm = ({ setToken, setNotification }) => {
     const submit = async e => {
         e.preventDefault();
         if (!validateInput(username) || !validateInput(password)) {
-            setNotification('Username/password is not valid', 5);
+            setNotification('Username/password is not valid', 'error', 5);
         } else {
             login({ variables: { username, password } });
         }

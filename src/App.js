@@ -17,6 +17,7 @@ const App = () => {
     const [user, setUser] = useState(null);
     const [page, setPage] = useState('landingPage');
     const [message, setMessage] = useState(null);
+    const [messageType, setMessageType] = useState(null);
 
     const [getUser, userResults] = useLazyQuery(ME);
 
@@ -48,7 +49,7 @@ const App = () => {
         onSubscriptionData: ({ subscriptionData }) => {
             // console.log('subscription data: ', subscriptionData);
             const addedBook = subscriptionData.data.bookAdded;
-            setNotification(`New book added: ${addedBook.title}`, 5);
+            setNotification(`New book added: ${addedBook.title}`, 'success', 5);
             updateCacheWith(addedBook);
         }
     });
@@ -62,10 +63,12 @@ const App = () => {
     };
 
     // helper function for setting notifications
-    const setNotification = (text, duration) => {
+    const setNotification = (text, type, duration) => {
         setMessage(text);
+        setMessageType(type);
         setTimeout(() => {
             setMessage(null);
+            setMessageType(null);
         }, duration * 1000);
     };
 
@@ -79,7 +82,7 @@ const App = () => {
                 logout={logout}
             />
 
-            <Notification message={message} />
+            <Notification type={messageType} message={message} />
 
             <LandingPage show={page === 'landingPage'} />
 

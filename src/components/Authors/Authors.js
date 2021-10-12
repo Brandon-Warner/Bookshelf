@@ -13,7 +13,7 @@ const Authors = ({ show, setNotification }) => {
     const [addBorn] = useMutation(ADD_BORN, {
         refetchQueries: [{ query: ALL_AUTHORS }],
         onError: () => {
-            setNotification('Error setting birth year, please try again');
+            setNotification('Error setting birth year, please try again', 'error', 5);
         }
     });
 
@@ -34,7 +34,7 @@ const Authors = ({ show, setNotification }) => {
         event.preventDefault();
 
         if (!bornValidation(born)) {
-            setNotification('Please enter born as a Number!', 5);
+            setNotification('Please enter born as a Number!','error', 5);
         } else {
             addBorn({ variables: { name, born } });
         }
