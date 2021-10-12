@@ -4,11 +4,12 @@
     background-color: #b9b8bbe3;
     width: 95vw;
     margin: 0 auto;
+    text-shadow: 1px 1px 1px black;
 }
 
 .books {
     grid-column-start: 2, 3;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -16,13 +17,13 @@
 
 .books_title {
     text-align: center;
-    text-decoration: underline;
+    font-size: 36px;
 }
 
 table.books_table {
     table-layout: fixed;
     max-width: 1000px;
-    
+
     margin: 0 auto;
     border-collapse: collapse;
     border: 3px solid #eee;
@@ -67,6 +68,7 @@ tbody.books_table__body tr:nth-child(odd) {
 tbody.books_table__body tr:hover {
     background-color: #fef9c7;
     color: black;
+    text-shadow: none;
 }
 
 .books_genres {

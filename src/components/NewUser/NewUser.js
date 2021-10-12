@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '../queries';
+import { CREATE_USER } from '../../queries';
+import './NewUser.css';
 
 const NewUser = ({ show, setNotification }) => {
     const [username, setUsername] = useState('');
@@ -49,33 +50,36 @@ const NewUser = ({ show, setNotification }) => {
     const submit = e => {
         e.preventDefault();
         if (!validatePassword(password)) {
-            setUsername('');
-            setPassword('');
-            setFavoriteGenre('');
         } else {
             createUser({ variables: { username, password, favoriteGenre } });
 
             setNotification(`${username}'s account has been created`, 5);
-
-            setUsername('');
-            setPassword('');
-            setFavoriteGenre('');
         }
+        setUsername('');
+        setPassword('');
+        setFavoriteGenre('');
     };
     return (
-        <div>
-            <h2>New User</h2>
-            <p>please enter a valid username and password</p>
-            <p>include your favorite genre so we can provide you recommendations!</p>
-            <p>
+        <div className='new-container'>
+            <h2 className='new-title'>New User</h2>
+            <p className='new-subtitle'>please enter a valid username and password</p>
+            <p className='new-subtitle'>
+                include your favorite genre so we can provide you recommendations!
+            </p>
+            <p className='new-instructions'>
                 <strong>password must be 8 characters and contain at least 1 number</strong>
             </p>
-            <form onSubmit={submit}>
+            <form className='new-form' onSubmit={submit}>
                 username
-                <input value={username} onChange={({ target }) => setUsername(target.value)} />
+                <input
+                    className='new-form__input'
+                    value={username}
+                    onChange={({ target }) => setUsername(target.value)}
+                />
                 <br />
                 password
                 <input
+                    className='new-form__input'
                     type='password'
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
@@ -83,11 +87,14 @@ const NewUser = ({ show, setNotification }) => {
                 <br />
                 favorite genre
                 <input
+                    className='new-form__input'
                     value={favoriteGenre}
                     onChange={({ target }) => setFavoriteGenre(target.value.toLowerCase())}
                 />
                 <br />
-                <button type='submit'>create new user</button>
+                <button className='new-form__button' type='submit'>
+                    create new user
+                </button>
             </form>
         </div>
     );

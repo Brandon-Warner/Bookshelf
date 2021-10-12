@@ -1,0 +1,80 @@
+.new-container {
+    display: grid;
+    background-color: #b9b8bbe3;
+    border-radius: 4px;
+    text-shadow: 1px 1px 1px black;
+    width: 65vw;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.new-title {
+    font-size: 36px;
+}
+
+.new-subtitle {
+    padding: 5px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.new-instructions {
+    font-size: 24px;
+}
+
+.new-form {
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.new-form__input {
+    padding: 5px;
+    margin: 0 0 10px 10px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-family: 'Exo', sans-serif;
+    font-size: 20px;
+}
+
+.new-form__button {
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-family: 'Exo', sans-serif;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    overflow: hidden;
+}
+
+.new-form__button:hover {
+    cursor: pointer;
+    background: #498c91;
+    color: #ffffff;
+}
+
+.new-form__button:after {
+    content: '';
+    background: #a9ebf7;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.new-form__button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}

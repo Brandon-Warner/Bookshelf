@@ -5,7 +5,7 @@ import Authors from './components/Authors/Authors';
 import Books from './components/Books/Books';
 import NewBook from './components/NewBook/NewBook';
 import Recommend from './components/Recommend/Recommend';
-import NewUser from './components/NewUser';
+import NewUser from './components/NewUser/NewUser';
 import Notification from './components/Notification/Notification';
 import LandingPage from './components/LandingPage/LandingPage';
 import Navigation from './components/Navigation/Navigation';

@@ -2,9 +2,12 @@
     display: grid;
     background-color: #b9b8bbe3;
     width: 95vw;
-    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: 20% 80%;
-    font-size: 20px;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px black;
 }
 
 .authors {
@@ -69,20 +72,23 @@ tbody.authors_table__body tr:nth-child(odd) {
 tbody.authors_table__body tr:hover {
     background-color: #fef9c7;
     color: black;
+    text-shadow: none;
 }
 
 .authors_title {
     text-align: center;
-    text-decoration: underline;
+    font-size: 36px;
 }
 
 .birthyear {
     grid-column-start: 1, 2;
     margin-left: 50px;
+    margin-top: 50px;
 }
 
 .birthyear_select {
     color: black;
+    text-shadow: none;
 }
 
 .birthyear_input_content {
@@ -97,6 +103,7 @@ tbody.authors_table__body tr:hover {
 }
 
 .birthyear_form__button {
+    position: relative;
     font-family: 'Exo', sans-serif;
     margin: 2px;
     border-radius: 4px;
@@ -105,10 +112,34 @@ tbody.authors_table__body tr:hover {
     padding: 5px 10px;
     background: none;
     color: black;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    overflow: hidden;
 }
 
 .birthyear_form__button:hover {
     cursor: pointer;
-    color: #498c91;
-    border: 1px solid #498c91;
+    background-color: #498c91;
+    color: white;
+    border: 1px solid black;
+}
+
+.birthyear_form__button:after {
+    content: '';
+    background: #a9ebf7;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.birthyear_form__button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
 }

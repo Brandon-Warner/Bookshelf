@@ -5,7 +5,7 @@
     margin-right: auto;
     background-color: #b9b8bbe3;
     border-radius: 4px;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 1px 1px 1px black;
     width: 65vw;
     padding-bottom: 40px;
 }
@@ -13,6 +13,7 @@
 .recommend-title {
     margin: 0 auto;
     padding: 30px;
+    font-size: 36px;
     /* text-shadow: 2px 2px 2px black; */
 }
 
@@ -22,6 +23,7 @@
 }
 
 table.recommend-table {
+    
     table-layout: fixed;
     max-width: 1000px;
     margin: 0 auto;
