@@ -58,6 +58,7 @@ const App = () => {
         setUser(null);
         localStorage.clear();
         client.resetStore();
+        setPage('landingPage');
     };
 
     // helper function for setting notifications

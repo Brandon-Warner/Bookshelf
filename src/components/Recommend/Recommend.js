@@ -17,21 +17,23 @@ const Recommend = ({ show, user }) => {
     }
 
     return (
-        <div>
-            <h2>Book Recommendations: </h2>
-            <p>
+        <div className='recommend-container'>
+            <h2 className='recommend-title'>Book Recommendations: </h2>
+            <p className='recommend-subtitle'>
                 matches to your favorite genre <strong>{user.favoriteGenre}</strong>
             </p>
-            <table>
-                <tbody>
+            <table className='recommend-table'>
+                <thead className='recommend-table__headers'>
                     <tr>
-                        <th></th>
-                        <th>author</th>
-                        <th>published</th>
+                        <th scope='col'>title</th>
+                        <th scope='col'>author</th>
+                        <th scope='col'>published</th>
                     </tr>
+                </thead>
+                <tbody className='recommend-table__body'>
                     {booksResult.data.allBooks.map(a => (
                         <tr key={a.title}>
-                            <td>{a.title}</td>
+                            <th scope='row'>{a.title}</th>
                             <td>{a.author.name}</td>
                             <td>{a.published}</td>
                         </tr>
