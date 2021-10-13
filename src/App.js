@@ -81,9 +81,9 @@ const App = () => {
                 setNotification={setNotification}
                 logout={logout}
             />
-
-            <Notification type={messageType} message={message} />
-
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Notification type={messageType} message={message} />
+            </div>
             <LandingPage show={page === 'landingPage'} />
 
             <NewUser setNotification={setNotification} show={page === 'newUser'} />
