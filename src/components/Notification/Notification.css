@@ -26,8 +26,7 @@
 }
 
 .notification-exit-active {
-    display: hidden;
     opacity: 0;
     transform: translateX(100%) scale(0.3);
-    transition: opacity 400ms ease-in, transform 500ms ease-in;
+    transition: opacity 400ms ease-in, transform 400ms ease-in;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+// import { ToastNotification } from 'carbon-components-react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './Notification.css';
@@ -10,9 +11,13 @@ const Notification = ({ message, type, showNotification }) => {
 
     return (
         <CSSTransition classNames='notification' in={showNotification} timeout={5000} unmountOnExit>
-            <MyNotification type={type}>
-                <h3>{message}</h3>
-            </MyNotification>
+            {status => {
+                return (
+                    <MyNotification status={status} type={type}>
+                        {message}
+                    </MyNotification>
+                );
+            }}
         </CSSTransition>
     );
 };
@@ -24,7 +29,10 @@ const MyNotification = styled.div`
     margin-right: 0px;
     text-align: center;
     border-radius: 4px;
+    padding: 5px;
     background-color: ${props => (props.type === 'success' ? '#249410' : '#c43737')};
+    font-size: 24px;
+    font-weight: bold;
     color: #eee;
     z-index: 1000;
 `;

@@ -74,6 +74,7 @@ const App = () => {
             setMessage(null);
             setMessageType(null);
         }, duration * 1000);
+        
     };
     // timer function is 1sec shorter than setNotification to keep text showing while notification exits
     const notificationTimer = () => {

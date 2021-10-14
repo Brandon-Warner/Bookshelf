@@ -38,11 +38,11 @@ const NewUser = ({ show, setNotification, notificationTimer }) => {
         const passwordArray = password.split('');
         console.log('passwordArray: ', passwordArray);
         if (passwordArray.length < 8) {
-            setNotification('password needs to be 8 characters or more', 5);
+            setNotification('password needs to be 8 characters or more', 'error', 5);
             notificationTimer();
             return false;
         } else if (!containsNumber(passwordArray)) {
-            setNotification('password must contain at least one number', 5);
+            setNotification('password must contain at least one number', 'error', 5);
             notificationTimer();
             return false;
         }
@@ -55,7 +55,7 @@ const NewUser = ({ show, setNotification, notificationTimer }) => {
         } else {
             createUser({ variables: { username, password, favoriteGenre } });
 
-            setNotification(`${username}'s account has been created`, 5);
+            setNotification(`${username}'s account has been created`, 'success', 5);
             notificationTimer();
         }
         setUsername('');
