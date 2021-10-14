@@ -1,5 +1,4 @@
 import React from 'react';
-// import { ToastNotification } from 'carbon-components-react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './Notification.css';
