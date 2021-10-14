@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { NEW_BOOK } from '../../queries';
 import './NewBook.css';
 
-const NewBook = ({ updateCacheWith, setNotification, show }) => {
+const NewBook = ({ updateCacheWith, setNotification, show, notificationTimer }) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [published, setPublished] = useState('');
@@ -42,6 +42,7 @@ const NewBook = ({ updateCacheWith, setNotification, show }) => {
                 'error',
                 5
             );
+            notificationTimer();
         } else {
             newBook({ variables: { title, author, published, genres } });
         }

@@ -3,15 +3,17 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../queries';
 import './LoginForm.css';
 
-const LoginForm = ({ setToken, setNotification }) => {
+const LoginForm = ({ setToken, setNotification, notificationTimer }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [login, result] = useMutation(LOGIN, {
         onError: () => {
             setNotification(`Username/password is not valid`, 'error', 5);
+            notificationTimer();
         },
         onCompleted: () => {
             setNotification(`Logged in successfully!`, 'success', 5);
+            notificationTimer();
         }
     });
 
@@ -35,6 +37,7 @@ const LoginForm = ({ setToken, setNotification }) => {
         e.preventDefault();
         if (!validateInput(username) || !validateInput(password)) {
             setNotification('Username/password is not valid', 'error', 5);
+            notificationTimer();
         } else {
             login({ variables: { username, password } });
         }

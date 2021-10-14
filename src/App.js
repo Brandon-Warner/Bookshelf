@@ -53,6 +53,7 @@ const App = () => {
             // console.log('subscription data: ', subscriptionData);
             const addedBook = subscriptionData.data.bookAdded;
             setNotification(`New book added: ${addedBook.title}`, 'success', 5);
+            notificationTimer();
             updateCacheWith(addedBook);
         }
     });
@@ -69,12 +70,17 @@ const App = () => {
     const setNotification = (text, type, duration) => {
         setMessage(text);
         setMessageType(type);
-        setShowNotification(true);
         setTimeout(() => {
             setMessage(null);
             setMessageType(null);
-            setShowNotification(false);
         }, duration * 1000);
+    };
+    // timer function is 1sec shorter than setNotification to keep text showing while notification exits
+    const notificationTimer = () => {
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 5000);
     };
 
     return (
@@ -84,6 +90,7 @@ const App = () => {
                 setToken={setToken}
                 setPage={setPage}
                 setNotification={setNotification}
+                notificationTimer={notificationTimer}
                 logout={logout}
             />
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -95,9 +102,17 @@ const App = () => {
             </div>
             <LandingPage show={page === 'landingPage'} />
 
-            <NewUser setNotification={setNotification} show={page === 'newUser'} />
+            <NewUser
+                setNotification={setNotification}
+                notificationTimer={notificationTimer}
+                show={page === 'newUser'}
+            />
 
-            <Authors setNotification={setNotification} show={page === 'authors'} />
+            <Authors
+                setNotification={setNotification}
+                notificationTimer={notificationTimer}
+                show={page === 'authors'}
+            />
 
             <Recommend user={user} setPage={setPage} show={page === 'recommend'} />
 
@@ -105,6 +120,7 @@ const App = () => {
 
             <NewBook
                 setNotification={setNotification}
+                notificationTimer={notificationTimer}
                 updateCacheWith={updateCacheWith}
                 show={page === 'add'}
             />

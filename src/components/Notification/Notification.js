@@ -4,11 +4,12 @@ import { CSSTransition } from 'react-transition-group';
 import './Notification.css';
 
 const Notification = ({ message, type, showNotification }) => {
+    console.log('message: ', message);
     console.log('type: ', type);
     console.log('showNotification: ', showNotification);
 
     return (
-        <CSSTransition classNames='notification' in={showNotification} timeout={5000}>
+        <CSSTransition classNames='notification' in={showNotification} timeout={5000} unmountOnExit>
             <MyNotification type={type}>
                 <h3>{message}</h3>
             </MyNotification>
