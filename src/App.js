@@ -18,9 +18,11 @@ const App = () => {
     const [page, setPage] = useState('landingPage');
     const [message, setMessage] = useState(null);
     const [messageType, setMessageType] = useState(null);
+    const [showNotification, setShowNotification] = useState(false);
 
     const [getUser, userResults] = useLazyQuery(ME);
 
+    // if a token exists, this will fetch the user information
     useEffect(() => {
         if (token) {
             getUser();
@@ -45,6 +47,7 @@ const App = () => {
         }
     };
 
+    // updates cache with websocket connection listening for added books
     useSubscription(BOOK_ADDED, {
         onSubscriptionData: ({ subscriptionData }) => {
             // console.log('subscription data: ', subscriptionData);
@@ -66,9 +69,11 @@ const App = () => {
     const setNotification = (text, type, duration) => {
         setMessage(text);
         setMessageType(type);
+        setShowNotification(true);
         setTimeout(() => {
             setMessage(null);
             setMessageType(null);
+            setShowNotification(false);
         }, duration * 1000);
     };
 
@@ -82,7 +87,11 @@ const App = () => {
                 logout={logout}
             />
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Notification type={messageType} message={message} />
+                <Notification
+                    type={messageType}
+                    message={message}
+                    showNotification={showNotification}
+                />
             </div>
             <LandingPage show={page === 'landingPage'} />
 
