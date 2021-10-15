@@ -4,11 +4,18 @@
     height: 60px;
 }
 .buttons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: inline;
     box-sizing: border-box;
     margin-right: 10px;
+}
+.buttons ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.buttons ul li {
+    list-style-type: none;
 }
 
 .btn {

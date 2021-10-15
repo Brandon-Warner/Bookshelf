@@ -6,40 +6,62 @@ const Navigation = ({ token, setToken, setPage, setNotification, logout, notific
     return (
         <div className='navigation'>
             <div className='buttons'>
-                <button className='btn' onClick={() => setPage('landingPage')}>
-                    home
-                </button>
-                <button className='btn' onClick={() => setPage('authors')}>
-                    authors
-                </button>
-                <button className='btn' onClick={() => setPage('books')}>
-                    books
-                </button>
-                {token === null ? (
-                    <LoginForm setToken={setToken} setNotification={setNotification} notificationTimer={notificationTimer}/>
-                ) : (
-                    <button className='btn' onClick={() => setPage('add')}>
-                        add book
-                    </button>
-                )}
+                <ul>
+                    <li>
+                        <button className='btn' onClick={() => setPage('landingPage')}>
+                            home
+                        </button>
+                    </li>
+                    <li>
+                        <button className='btn' onClick={() => setPage('authors')}>
+                            authors
+                        </button>
+                    </li>
+                    <li>
+                        <button className='btn' onClick={() => setPage('books')}>
+                            books
+                        </button>
+                    </li>
+                    {token === null ? (
+                        <li>
+                            <LoginForm
+                                setToken={setToken}
+                                setNotification={setNotification}
+                                notificationTimer={notificationTimer}
+                            />
+                        </li>
+                    ) : (
+                        <li>
+                            <button className='btn' onClick={() => setPage('add')}>
+                                add book
+                            </button>
+                        </li>
+                    )}
 
-                {token === null ? null : (
-                    <button className='btn' onClick={() => setPage('recommend')}>
-                        recommend
-                    </button>
-                )}
+                    {token === null ? null : (
+                        <li>
+                            <button className='btn' onClick={() => setPage('recommend')}>
+                                recommend
+                            </button>
+                        </li>
+                    )}
 
-                {token === null ? (
-                    <button className='btn' onClick={() => setPage('newUser')}>
-                        new user
-                    </button>
-                ) : null}
+                    {token === null ? (
+                        <li>
+                            <button className='btn' onClick={() => setPage('newUser')}>
+                                new user
+                            </button>
+                        </li>
+                    ) : null}
 
-                {token === null ? null : (
-                    <button className='btn' onClick={logout}>
-                        logout
-                    </button>
-                )}
+                    {token === null ? null : (
+                        <li>
+                            <button className='btn' onClick={logout}>
+                                logout
+                            </button>
+                        </li>
+                    )}
+                </ul>
             </div>
         </div>
     );
