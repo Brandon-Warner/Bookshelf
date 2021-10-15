@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navigation.css';
+import Hamburger from '../Hamburger';
 import LoginForm from '../LoginForm/LoginForm';
 
 const Navigation = ({ token, setToken, setPage, setNotification, logout, notificationTimer }) => {
@@ -62,6 +63,9 @@ const Navigation = ({ token, setToken, setPage, setNotification, logout, notific
                         </li>
                     )}
                 </ul>
+                <div>
+                    <Hamburger />
+                </div>
             </div>
         </div>
     );
