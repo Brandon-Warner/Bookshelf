@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApolloClient, useSubscription, useLazyQuery } from '@apollo/client';
 import { ALL_BOOKS, BOOK_ADDED, ME } from './queries';
+import LoginForm from './components/LoginForm/LoginForm';
 import Authors from './components/Authors/Authors';
 import Books from './components/Books/Books';
 import NewBook from './components/NewBook/NewBook';
@@ -74,7 +75,6 @@ const App = () => {
             setMessage(null);
             setMessageType(null);
         }, duration * 1000);
-        
     };
     // timer function is 1sec shorter than setNotification to keep text showing while notification exits
     const notificationTimer = () => {
@@ -102,6 +102,13 @@ const App = () => {
                 />
             </div>
             <LandingPage show={page === 'landingPage'} />
+
+            <LoginForm
+                show={page === 'login'}
+                setToken={setToken}
+                setNotification={setNotification}
+                notificationTimer={notificationTimer}
+            />
 
             <NewUser
                 setNotification={setNotification}

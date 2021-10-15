@@ -1,21 +1,6 @@
-.navigation {
-    background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
-    opacity: 1;
-    height: 60px;
-}
-.buttons {
-    display: inline;
-    box-sizing: border-box;
-    margin-right: 10px;
-}
-.buttons ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.buttons ul li {
+.navigation li {
     list-style-type: none;
+    padding-right: 10px;
 }
 
 .btn {
@@ -35,4 +20,20 @@
     color: #498c91;
 }
 
+div.hamburger {
+    display: none;
+}
 
+.hamburger:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1185px) {
+    div.hamburger {
+        display: flex;
+        padding-left: 5px;
+        margin-left: 5px;
+        margin-top: 5px;
+        z-index: 10;
+    }
+}

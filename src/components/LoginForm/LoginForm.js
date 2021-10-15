@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../queries';
 import './LoginForm.css';
 
-const LoginForm = ({ setToken, setNotification, notificationTimer }) => {
+const LoginForm = ({ show, setToken, setNotification, notificationTimer }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [login, result] = useMutation(LOGIN, {
@@ -46,6 +46,10 @@ const LoginForm = ({ setToken, setNotification, notificationTimer }) => {
         setPassword('');
     };
 
+    if (!show) {
+        return null;
+    }
+
     return (
         <div className='login'>
             <form onSubmit={submit} className='login-form'>
@@ -55,6 +59,7 @@ const LoginForm = ({ setToken, setNotification, notificationTimer }) => {
                     value={username}
                     onChange={({ target }) => setUsername(target.value)}
                 />
+                <br />
                 password
                 <input
                     className='login-form__password'
