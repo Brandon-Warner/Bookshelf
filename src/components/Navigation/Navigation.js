@@ -91,9 +91,10 @@ const ButtonsList = styled.ul`
         color: #eee;
         height: 100vw;
         width: 50vw;
-        margin-top: 60px;
+        margin-top: 10px;
+        margin-right: 10px;
         position: absolute;
-        z-index: 20;
+        z-index: 10;
     }
 `;
 
