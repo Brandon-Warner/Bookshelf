@@ -1,6 +1,5 @@
-.home{
+.home {
     display: flex;
-
 }
 
 .home-header {
@@ -27,5 +26,24 @@ h1 {
     to {
         width: 100%;
         font-size: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .home-header {
+        max-width: 600;
+        text-align: center;
+    }
+    h1 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 500px) {
+    .home-header {
+        max-width: 300px;
+    }
+    h1 {
+        font-size: 40px;
     }
 }

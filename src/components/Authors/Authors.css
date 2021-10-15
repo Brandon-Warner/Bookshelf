@@ -5,7 +5,7 @@
     margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
     font-size: 16px;
     text-shadow: 1px 1px 1px black;
 }
@@ -17,7 +17,7 @@
 
 table.authors_table {
     table-layout: fixed;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     border-collapse: collapse;
     border: 3px solid #eee;
@@ -82,8 +82,9 @@ tbody.authors_table__body tr:hover {
 
 .birthyear {
     grid-column-start: 1, 2;
-    margin-left: 50px;
-    margin-top: 50px;
+    /* margin-left: 50px;
+    margin-top: 50px; */
+    margin: 50px;
 }
 
 .birthyear_select {
@@ -142,4 +143,36 @@ tbody.authors_table__body tr:hover {
     margin: 0;
     opacity: 1;
     transition: 0s;
+}
+
+@media (max-width: 1200px) {
+    .container-authors {
+        grid-template-columns: 30% 70%;
+        width: 100vw;
+    }
+    .authors {
+        margin-right: 10px;
+    }
+    .birthyear {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-authors {
+        width: 100vw;
+    }
+    .birthyear {
+        margin-left: 2px;
+        margin-right: 0px;
+        text-align: center;
+    }
+    
+    .css-yk16xz-control {
+        width: 140px;
+        align-items: center;
+    }
+    .birthyear_input_content {
+        width: 125px;
+    }
 }
