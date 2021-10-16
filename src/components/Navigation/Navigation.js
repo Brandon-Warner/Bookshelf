@@ -5,7 +5,9 @@ import Hamburger from '../Hamburger';
 
 const Navigation = ({ token, setPage, logout }) => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
     console.log('hamburgerOpen: ', hamburgerOpen);
+
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen);
     };
@@ -65,7 +67,7 @@ const Navigation = ({ token, setPage, logout }) => {
                 )}
             </ButtonsList>
             <div className='hamburger' onClick={toggleHamburger}>
-                <Hamburger />
+                <Hamburger hamburgerOpen={hamburgerOpen} />
             </div>
         </Nav>
     );
@@ -88,6 +90,7 @@ const ButtonsList = styled.ul`
     @media (max-width: 1185px) {
         display: ${props => (props.hamburgerOpen ? 'inline' : 'none')};
         background-color: black;
+        text-align: center;
         color: #eee;
         height: 100vw;
         width: 50vw;

@@ -1,7 +1,8 @@
 import React from 'react';
 import './Hamburger.css';
 
-const Hamburger = () => {
+const Hamburger = ({ hamburgerOpen }) => {
+    console.log('hamburgerOpen: ', hamburgerOpen);
     return (
         <div className='hamburger'>
             <div className='burger burger1' />
