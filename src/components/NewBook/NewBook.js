@@ -73,6 +73,7 @@ const NewBook = ({ updateCacheWith, setNotification, show, notificationTimer }) 
 
     return (
         <div className='new-book'>
+            <h2 className='new-book__title'>Add a Book</h2>
             <form className='new-book__form' onSubmit={submit}>
                 <div className='new-book__form-item'>
                     title
@@ -100,6 +101,7 @@ const NewBook = ({ updateCacheWith, setNotification, show, notificationTimer }) 
                     />
                 </div>
                 <div className='new-book__form-item'>
+                    genre:
                     <input
                         className='new-book__form-item__genre'
                         value={genre}

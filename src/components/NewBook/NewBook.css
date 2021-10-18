@@ -1,27 +1,33 @@
 .new-book {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 50px;
-    font-size: 30px;
-}
-
-.new-book__form {
-    align-items: center;
-    height: 400px;
-    width: 375px;
-    padding: 40px;
-    border-radius: 4px;
     background-color: #b9b8bbe3;
+    width: 45vw;
+    display: grid;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    text-shadow: 1px 1px 1px black;
     box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
         0.075em 0.075em 0.15em rgba(0, 0, 0, 0.1);
 }
 
+h2.new-book__title {
+    font-size: 36px;
+    margin: 0 auto;
+}
+
+.new-book__form {
+    padding: 3rem;
+    border-radius: 4px;
+    font-size: 24px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
 .new-book__form-item {
     margin-bottom: 25px;
-    display: flex;
-    text-shadow: 1px 1px 1px black;
+    height: auto;
 }
 
 .new-book__form-item__input {
@@ -34,7 +40,7 @@
 
 .new-book__form-item__genre {
     font-size: 20px;
-    margin-right: 10px;
+    margin: 0 10px;
     padding: 5px;
     border-radius: 4px;
     border: none;
@@ -61,6 +67,7 @@
 
 .new-book__form-item__submit-button {
     position: relative;
+    width: 150px;
     font-size: 20px;
     background: none;
     border: none;
@@ -71,12 +78,14 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     overflow: hidden;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .new-book__form-item__cancel-button {
     position: relative;
     font-size: 14px;
-    margin-left: 20px;
     background: none;
     border: none;
     outline: 1px solid black;
@@ -86,6 +95,9 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     overflow: hidden;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .new-book__form-item__genre-button:hover,

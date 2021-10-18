@@ -18,7 +18,7 @@ const Recommend = ({ show, user }) => {
 
     return (
         <div className='recommend-container'>
-            <h2 className='recommend-title'>Book Recommendations: </h2>
+            <h2 className='recommend-title'>Book Recommendations </h2>
             <p className='recommend-subtitle'>
                 matches to your favorite genre <strong>{user.favoriteGenre}</strong>
             </p>
