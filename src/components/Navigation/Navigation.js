@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import './Navigation.css';
-import Hamburger from '../Hamburger';
+import Hamburger from '../Hamburger/Hamburger';
 
 const Navigation = ({ token, setPage, logout }) => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
