@@ -33,7 +33,7 @@ h1 {
 
 @media (max-width: 1000px) {
     .home-header {
-        max-width: 600;
+        width: 100vw;
         text-align: center;
     }
     h1 {
@@ -44,7 +44,7 @@ h1 {
     @keyframes fadein {
         from {
             opacity: 0;
-            font-size: 80px;
+            font-size: 70px;
         }
 
         to {

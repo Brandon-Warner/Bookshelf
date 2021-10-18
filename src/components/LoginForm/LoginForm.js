@@ -52,6 +52,7 @@ const LoginForm = ({ show, setToken, setNotification, notificationTimer }) => {
 
     return (
         <div className='login'>
+            <h2 className='login-title'>Login</h2>
             <form onSubmit={submit} className='login-form'>
                 username
                 <input
@@ -67,6 +68,7 @@ const LoginForm = ({ show, setToken, setNotification, notificationTimer }) => {
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                 />
+                <br />
                 <button className='login-form__button' type='submit'>
                     login
                 </button>

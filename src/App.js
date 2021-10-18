@@ -16,7 +16,7 @@ const App = () => {
 
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
-    const [page, setPage] = useState('landingPage');
+    const [page, setPage] = useState('login');
     const [message, setMessage] = useState(null);
     const [messageType, setMessageType] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
