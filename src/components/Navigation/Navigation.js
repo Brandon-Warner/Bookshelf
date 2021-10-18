@@ -73,7 +73,7 @@ const Navigation = ({ token, setPage, logout }) => {
     );
 };
 
-const Nav = styled.div`
+const Nav = styled.nav`
     background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
     opacity: 1;
     height: 60px;
@@ -84,8 +84,8 @@ const ButtonsList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     float: right;
-    margin: 20 0px;
     padding: 0 25px;
+    transform: translateX(0);
 
     @media (max-width: 1185px) {
         display: ${props => (props.hamburgerOpen ? 'inline' : 'none')};
@@ -94,9 +94,7 @@ const ButtonsList = styled.ul`
         color: #eee;
         height: 100vw;
         width: 50vw;
-        margin-top: 10px;
-        margin-right: 10px;
-        position: absolute;
+        position: fixed;
         z-index: 10;
     }
 `;

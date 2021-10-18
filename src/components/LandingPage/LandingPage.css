@@ -38,6 +38,19 @@ h1 {
     }
     h1 {
         font-size: 60px;
+        animation: fadein;
+        animation-duration: 1.5s;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            font-size: 80px;
+        }
+
+        to {
+            width: 100%;
+            font-size: 60px;
+        }
     }
 }
 
@@ -47,5 +60,18 @@ h1 {
     }
     h1 {
         font-size: 40px;
+        animation: fadein;
+        animation-duration: 1.5s;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            font-size: 50px;
+        }
+
+        to {
+            width: 100%;
+            font-size: 40px;
+        }
     }
 }
