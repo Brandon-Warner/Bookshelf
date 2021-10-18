@@ -9,7 +9,7 @@ const Notification = ({ message, type, showNotification }) => {
     console.log('showNotification: ', showNotification);
 
     return (
-        <CSSTransition classNames='notification' in={showNotification} timeout={5000} unmountOnExit>
+        <CSSTransition classNames='notification' in={showNotification} timeout={4000} unmountOnExit>
             {status => {
                 return (
                     <MyNotification status={status} type={type}>
@@ -23,9 +23,9 @@ const Notification = ({ message, type, showNotification }) => {
 
 const MyNotification = styled.div`
     position: fixed;
-    align-item: right;
+    float: right;
     width: 500px;
-    margin-right: 0px;
+    margin-right: -500px;
     text-align: center;
     border-radius: 4px;
     padding: 5px;
