@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import './Navigation.css';
 import Hamburger from '../Hamburger/Hamburger';
 
@@ -73,6 +73,36 @@ const Navigation = ({ token, setPage, logout }) => {
     );
 };
 
+const slideIn = keyframes`
+from {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+to {
+    transform: translateX(0);
+    opacity: 1;
+}
+`;
+
+const slideOut = keyframes`
+from {
+    transform: translateX(100%);
+    opacity: 1;
+}
+to {
+    transform: translateX(0);
+    opacity: 0;
+}
+`;
+
+const animationEnter = css`
+    ${slideIn} 300ms cubic-bezier(0.5, 0, 0.5, 1)
+`;
+
+const animationExit = css`
+    ${slideOut} 300ms cubic-bezier(0.5, 0, 0.5, 1)
+`;
+
 const Nav = styled.nav`
     background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
     opacity: 1;
@@ -85,7 +115,6 @@ const ButtonsList = styled.ul`
     flex-wrap: wrap;
     float: right;
     padding: 0 25px;
-    transform: translateX(0);
 
     @media (max-width: 1185px) {
         display: ${props => (props.hamburgerOpen ? 'inline' : 'none')};
@@ -96,7 +125,14 @@ const ButtonsList = styled.ul`
         width: 50vw;
         position: fixed;
         z-index: 10;
-    }
+        animation: ${props =>
+            props.hamburgerOpen
+                ? css`
+                      ${animationEnter}
+                  `
+                : css`
+                      ${animationExit}
+                  `};
 `;
 
 export default Navigation;
