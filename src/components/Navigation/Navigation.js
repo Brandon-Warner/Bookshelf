@@ -84,23 +84,8 @@ to {
 }
 `;
 
-const slideOut = keyframes`
-from {
-    transform: translateX(100%);
-    opacity: 1;
-}
-to {
-    transform: translateX(0);
-    opacity: 0;
-}
-`;
-
 const animationEnter = css`
     ${slideIn} 300ms cubic-bezier(0.5, 0, 0.5, 1)
-`;
-
-const animationExit = css`
-    ${slideOut} 300ms cubic-bezier(0.5, 0, 0.5, 1)
 `;
 
 const Nav = styled.nav`
@@ -130,9 +115,7 @@ const ButtonsList = styled.ul`
                 ? css`
                       ${animationEnter}
                   `
-                : css`
-                      ${animationExit}
-                  `};
+                : 'none'};
 `;
 
 export default Navigation;
