@@ -10,6 +10,7 @@ import NewUser from './components/NewUser/NewUser';
 import Notification from './components/Notification/Notification';
 import LandingPage from './components/LandingPage/LandingPage';
 import Navigation from './components/Navigation/Navigation';
+import PageTransition from './components/PageTransition/PageTransition';
 
 const App = () => {
     const client = useApolloClient();
@@ -20,6 +21,8 @@ const App = () => {
     const [message, setMessage] = useState(null);
     const [messageType, setMessageType] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
+    const [transitionActive, setTransitionActive] = useState(false);
+    console.log('transition active? :', transitionActive);
 
     const [getUser, userResults] = useLazyQuery(ME);
 
@@ -84,14 +87,23 @@ const App = () => {
         }, 5000);
     };
 
+    const transitionHelper = () => {
+        setTransitionActive(!transitionActive);
+        // setTimeout(() => {
+        //     setTransitionActive(false);
+        // }, 2000);
+    };
+
     return (
         <div className='page'>
+            <PageTransition transitionActive={transitionActive} />
             <Navigation
                 token={token}
                 setToken={setToken}
                 setPage={setPage}
                 setNotification={setNotification}
                 notificationTimer={notificationTimer}
+                transitionHelper={transitionHelper}
                 logout={logout}
             />
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

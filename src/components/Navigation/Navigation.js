@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import './Navigation.css';
 import Hamburger from '../Hamburger/Hamburger';
 
-const Navigation = ({ token, setPage, logout }) => {
+const Navigation = ({ token, setPage, logout, transitionHelper }) => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
     console.log('hamburgerOpen: ', hamburgerOpen);
@@ -16,27 +16,57 @@ const Navigation = ({ token, setPage, logout }) => {
         <Nav>
             <ButtonsList hamburgerOpen={hamburgerOpen} className='navigation'>
                 <li>
-                    <button className='btn' onClick={() => setPage('landingPage')}>
+                    <button
+                        className='btn'
+                        onClick={() => {
+                            setPage('landingPage');
+                            transitionHelper();
+                        }}
+                    >
                         home
                     </button>
                 </li>
                 <li>
-                    <button className='btn' onClick={() => setPage('authors')}>
+                    <button
+                        className='btn'
+                        onClick={() => {
+                            setPage('authors');
+                            transitionHelper();
+                        }}
+                    >
                         authors
                     </button>
                 </li>
                 <li>
-                    <button className='btn' onClick={() => setPage('books')}>
+                    <button
+                        className='btn'
+                        onClick={() => {
+                            setPage('books');
+                            transitionHelper();
+                        }}
+                    >
                         books
                     </button>
                 </li>
                 {token === null ? (
-                    <button className='btn' onClick={() => setPage('login')}>
+                    <button
+                        className='btn'
+                        onClick={() => {
+                            setPage('login');
+                            transitionHelper();
+                        }}
+                    >
                         login
                     </button>
                 ) : (
                     <li>
-                        <button className='btn' onClick={() => setPage('add')}>
+                        <button
+                            className='btn'
+                            onClick={() => {
+                                setPage('add');
+                                transitionHelper();
+                            }}
+                        >
                             add book
                         </button>
                     </li>
@@ -44,7 +74,13 @@ const Navigation = ({ token, setPage, logout }) => {
 
                 {token === null ? null : (
                     <li>
-                        <button className='btn' onClick={() => setPage('recommend')}>
+                        <button
+                            className='btn'
+                            onClick={() => {
+                                setPage('recommend');
+                                transitionHelper();
+                            }}
+                        >
                             recommend
                         </button>
                     </li>
@@ -52,7 +88,13 @@ const Navigation = ({ token, setPage, logout }) => {
 
                 {token === null ? (
                     <li>
-                        <button className='btn' onClick={() => setPage('newUser')}>
+                        <button
+                            className='btn'
+                            onClick={() => {
+                                setPage('newUser');
+                                transitionHelper();
+                            }}
+                        >
                             new user
                         </button>
                     </li>

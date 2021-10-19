@@ -14,7 +14,7 @@ const Authors = ({ show, setNotification, notificationTimer }) => {
         refetchQueries: [{ query: ALL_AUTHORS }],
         onError: () => {
             setNotification('Error setting birth year, please try again', 'error', 5);
-            notificationTimer()
+            notificationTimer();
         }
     });
 
@@ -35,7 +35,7 @@ const Authors = ({ show, setNotification, notificationTimer }) => {
         event.preventDefault();
 
         if (!bornValidation(born)) {
-            setNotification('Please enter born as a Number!','error', 5);
+            setNotification('Please enter born as a Number!', 'error', 5);
             notificationTimer();
         } else {
             addBorn({ variables: { name, born } });
