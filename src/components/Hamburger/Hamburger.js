@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import './Hamburger.css';
 
 const Hamburger = ({ hamburgerOpen }) => {
-    console.log('hamburgerOpen: ', hamburgerOpen);
+    // console.log('hamburgerOpen: ', hamburgerOpen);
     return (
         <div className='hamburger'>
             <Burger1 hamburgerOpen={hamburgerOpen} className='burger' />

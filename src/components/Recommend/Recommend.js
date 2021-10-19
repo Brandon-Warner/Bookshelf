@@ -4,11 +4,11 @@ import { FAV_GENRE_BOOK } from '../../queries';
 import './Recommend.css';
 
 const Recommend = ({ show, user }) => {
-    // console.log('Recommend page user: ', user);
+    console.log('Recommend page user: ', user);
 
     const booksResult = useQuery(FAV_GENRE_BOOK, {
         variables: {
-            genre: !user ? 'thriller' : user.favoriteGenre
+            genre: !user ? 'ALL' : user.favoriteGenre
         }
     });
 

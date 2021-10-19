@@ -22,7 +22,6 @@ const App = () => {
     const [messageType, setMessageType] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
     const [transitionActive, setTransitionActive] = useState(false);
-    console.log('transition active? :', transitionActive);
 
     const [getUser, userResults] = useLazyQuery(ME);
 
@@ -67,7 +66,8 @@ const App = () => {
         setUser(null);
         localStorage.clear();
         client.resetStore();
-        setPage('landingPage');
+        transitionHelper();
+        pageDelayHelper('landingPage');
     };
 
     // helper function for setting notifications
@@ -79,6 +79,7 @@ const App = () => {
             setMessageType(null);
         }, duration * 1000);
     };
+
     // timer function is 1sec shorter than setNotification to keep text showing while notification exits
     const notificationTimer = () => {
         setShowNotification(true);
@@ -87,11 +88,17 @@ const App = () => {
         }, 5000);
     };
 
+    // toggle transition when changing page
     const transitionHelper = () => {
         setTransitionActive(!transitionActive);
-        // setTimeout(() => {
-        //     setTransitionActive(false);
-        // }, 2000);
+    };
+
+    // delays the page state switch to match up with the transition style
+    const pageDelayHelper = newPage => {
+        setPage(page);
+        setTimeout(() => {
+            setPage(newPage);
+        }, 900);
     };
 
     return (
@@ -100,7 +107,7 @@ const App = () => {
             <Navigation
                 token={token}
                 setToken={setToken}
-                setPage={setPage}
+                pageDelayHelper={pageDelayHelper}
                 setNotification={setNotification}
                 notificationTimer={notificationTimer}
                 transitionHelper={transitionHelper}

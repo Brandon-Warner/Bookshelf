@@ -3,70 +3,45 @@ import styled, { css, keyframes } from 'styled-components';
 import './Navigation.css';
 import Hamburger from '../Hamburger/Hamburger';
 
-const Navigation = ({ token, setPage, logout, transitionHelper }) => {
+const Navigation = ({ token, logout, transitionHelper, pageDelayHelper }) => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-    console.log('hamburgerOpen: ', hamburgerOpen);
+    // console.log('hamburgerOpen: ', hamburgerOpen);
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen);
+    };
+
+    const pageTransition = newPage => {
+        pageDelayHelper(newPage);
+        transitionHelper();
     };
 
     return (
         <Nav>
             <ButtonsList hamburgerOpen={hamburgerOpen} className='navigation'>
                 <li>
-                    <button
-                        className='btn'
-                        onClick={() => {
-                            setPage('landingPage');
-                            transitionHelper();
-                        }}
-                    >
+                    <button className='btn' onClick={() => pageTransition('landingPage')}>
                         home
                     </button>
                 </li>
                 <li>
-                    <button
-                        className='btn'
-                        onClick={() => {
-                            setPage('authors');
-                            transitionHelper();
-                        }}
-                    >
+                    <button className='btn' onClick={() => pageTransition('authors')}>
                         authors
                     </button>
                 </li>
                 <li>
-                    <button
-                        className='btn'
-                        onClick={() => {
-                            setPage('books');
-                            transitionHelper();
-                        }}
-                    >
+                    <button className='btn' onClick={() => pageTransition('books')}>
                         books
                     </button>
                 </li>
                 {token === null ? (
-                    <button
-                        className='btn'
-                        onClick={() => {
-                            setPage('login');
-                            transitionHelper();
-                        }}
-                    >
+                    <button className='btn' onClick={() => pageTransition('login')}>
                         login
                     </button>
                 ) : (
                     <li>
-                        <button
-                            className='btn'
-                            onClick={() => {
-                                setPage('add');
-                                transitionHelper();
-                            }}
-                        >
+                        <button className='btn' onClick={() => pageTransition('add')}>
                             add book
                         </button>
                     </li>
@@ -74,13 +49,7 @@ const Navigation = ({ token, setPage, logout, transitionHelper }) => {
 
                 {token === null ? null : (
                     <li>
-                        <button
-                            className='btn'
-                            onClick={() => {
-                                setPage('recommend');
-                                transitionHelper();
-                            }}
-                        >
+                        <button className='btn' onClick={() => pageTransition('recommend')}>
                             recommend
                         </button>
                     </li>
@@ -88,13 +57,7 @@ const Navigation = ({ token, setPage, logout, transitionHelper }) => {
 
                 {token === null ? (
                     <li>
-                        <button
-                            className='btn'
-                            onClick={() => {
-                                setPage('newUser');
-                                transitionHelper();
-                            }}
-                        >
+                        <button className='btn' onClick={() => pageTransition('newUser')}>
                             new user
                         </button>
                     </li>
