@@ -96,6 +96,7 @@ const animationEnter = css`
 
 const Nav = styled.nav`
     background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
+    display: fixed;
     opacity: 1;
     height: 60px;
     margin-bottom: 10px;
