@@ -15,6 +15,7 @@ const Navigation = ({ token, logout, transitionHelper, pageDelayHelper }) => {
     const pageTransition = newPage => {
         pageDelayHelper(newPage);
         transitionHelper();
+        toggleHamburger();
     };
 
     return (
