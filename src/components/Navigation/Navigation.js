@@ -96,10 +96,15 @@ const animationEnter = css`
 
 const Nav = styled.nav`
     background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
-    display: fixed;
+    margin: 0;
     opacity: 1;
     height: 60px;
     margin-bottom: 10px;
+
+    @media (max-width: 1185px) {
+        position: fixed;
+        width: 100vw;
+    }
 `;
 
 const ButtonsList = styled.ul`
@@ -113,6 +118,7 @@ const ButtonsList = styled.ul`
         background-color: black;
         text-align: center;
         color: #eee;
+        margin: 0;
         height: 100vw;
         width: 50vw;
         position: fixed;
