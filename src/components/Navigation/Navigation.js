@@ -91,10 +91,12 @@ const Nav = styled.nav`
     opacity: 1;
     height: 60px;
     margin-bottom: 10px;
+    z-index: 1000;
 
     @media (max-width: 1185px) {
         position: fixed;
         width: 100vw;
+        z-index: 1000;
     }
 `;
 
@@ -103,6 +105,7 @@ const ButtonsList = styled.ul`
     flex-wrap: wrap;
     float: right;
     padding: 0 25px;
+    z-index: 1000;
 
     @media (max-width: 1185px) {
         display: block;
@@ -115,7 +118,7 @@ const ButtonsList = styled.ul`
         left: 0;
         right: 0;
         position: fixed;
-        z-index: 100;
+        z-index: 1000;
 
         transform: ${props => (props.hamburgerOpen ? 'translateX(0)' : 'translateX(-100%)')};
         transition: transform 300ms cubic-bezier(0.5, 0, 0.5, 1);

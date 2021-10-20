@@ -85,12 +85,17 @@ tbody.authors_table__body tr:hover {
     /* margin-left: 50px;
     margin-top: 50px; */
     margin: 50px;
+    z-index: 0;
 }
+
+
 
 .birthyear_select {
     color: black;
     text-shadow: none;
 }
+
+
 
 .birthyear_input_content {
     padding: 5px;
