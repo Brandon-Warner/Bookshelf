@@ -3,6 +3,8 @@
     padding-right: 10px;
 }
 
+
+
 .btn {
     border: 0;
     padding: 10px;
@@ -35,7 +37,7 @@ div.hamburger:hover {
         padding-left: 5px;
         margin-left: 5px;
         margin-top: 5px;
-        z-index: 10;
+        z-index: 100;
     }
 
     .btn {

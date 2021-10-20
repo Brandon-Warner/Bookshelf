@@ -79,21 +79,6 @@ const Navigation = ({ token, logout, transitionHelper, pageDelayHelper }) => {
     );
 };
 
-const slideIn = keyframes`
-from {
-    transform: translateX(-100%);
-    opacity: 0;
-}
-to {
-    transform: translateX(0);
-    opacity: 1;
-}
-`;
-
-const animationEnter = css`
-    ${slideIn} 300ms cubic-bezier(0.5, 0, 0.5, 1)
-`;
-
 const Nav = styled.nav`
     background: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
     margin: 0;
@@ -114,21 +99,20 @@ const ButtonsList = styled.ul`
     padding: 0 25px;
 
     @media (max-width: 1185px) {
-        display: ${props => (props.hamburgerOpen ? 'inline' : 'none')};
+        display: block;
         background-color: black;
         text-align: center;
         color: #eee;
         margin: 0;
-        height: 100vw;
-        width: 50vw;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         position: fixed;
-        z-index: 10;
-        animation: ${props =>
-            props.hamburgerOpen
-                ? css`
-                      ${animationEnter}
-                  `
-                : 'none'};
+        z-index: 100;
+
+        transform: ${props => (props.hamburgerOpen ? 'translateX(0)' : 'translateX(-100%)')};
+        transition: transform 300ms cubic-bezier(0.5, 0, 0.5, 1);
 `;
 
 export default Navigation;
