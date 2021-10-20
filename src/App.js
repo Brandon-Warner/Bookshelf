@@ -89,7 +89,7 @@ const App = () => {
         setPage(page);
         setTimeout(() => {
             setPage(newPage);
-        }, 900);
+        }, 1000);
     };
 
     const logout = () => {
