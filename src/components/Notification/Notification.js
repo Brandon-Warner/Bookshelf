@@ -28,11 +28,16 @@ const MyNotification = styled.div`
     margin-right: -500px;
     text-align: center;
     border-radius: 4px;
-    padding: 5px;
+    padding: 10px;
     background-color: ${props => (props.type === 'success' ? '#249410' : '#c43737')};
     font-size: 24px;
     font-weight: bold;
     color: #eee;
-    z-index: 1000;
+    text-shadow: 1px 1px 1px black;
+    z-index: 2000;
+
+    @media (max-width: 1185px) {
+        margin: 0;
+    }
 `;
 export default Notification;

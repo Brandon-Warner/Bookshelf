@@ -109,6 +109,7 @@ const ButtonsList = styled.ul`
 
     @media (max-width: 1185px) {
         display: block;
+        max-width: 100vw;
         background-color: black;
         text-align: center;
         color: #eee;
