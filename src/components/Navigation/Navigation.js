@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import './Navigation.css';
 import Hamburger from '../Hamburger/Hamburger';
 
@@ -66,7 +66,13 @@ const Navigation = ({ token, logout, transitionHelper, pageDelayHelper }) => {
 
                 {token === null ? null : (
                     <li>
-                        <button className='btn' onClick={logout}>
+                        <button
+                            className='btn'
+                            onClick={() => {
+                                logout();
+                                pageTransition('landingPage');
+                            }}
+                        >
                             logout
                         </button>
                     </li>

@@ -61,15 +61,6 @@ const App = () => {
         }
     });
 
-    const logout = () => {
-        setToken(null);
-        setUser(null);
-        localStorage.clear();
-        client.resetStore();
-        transitionHelper();
-        pageDelayHelper('landingPage');
-    };
-
     // helper function for setting notifications
     const setNotification = (text, type, duration) => {
         setMessage(text);
@@ -99,6 +90,15 @@ const App = () => {
         setTimeout(() => {
             setPage(newPage);
         }, 900);
+    };
+
+    const logout = () => {
+        setToken(null);
+        setUser(null);
+        localStorage.clear();
+        client.resetStore();
+        transitionHelper();
+        pageDelayHelper('landingPage');
     };
 
     return (
