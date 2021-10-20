@@ -4,7 +4,7 @@ import './PageTransition.css';
 const PageTransition = ({ transitionActive }) => {
     console.log('transition active props page transition: ', transitionActive);
     return (
-        <div className='transition-container'>
+        <div>
             <div className={transitionActive ? 'left-layer active' : 'left-layer '}></div>
             <div
                 className={
