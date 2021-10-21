@@ -18,9 +18,12 @@ const App = () => {
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
     const [page, setPage] = useState('landingPage');
-    const [message, setMessage] = useState(null);
-    const [messageType, setMessageType] = useState(null);
-    const [showNotification, setShowNotification] = useState(false);
+
+    const [notifications, setNotifications] = useState([]);
+    const [visibleNotifications, setVisibleNotifications] = useState([]);
+    console.log('notifications: ', notifications);
+    console.log('visibleNotifications: ', visibleNotifications);
+
     const [transitionActive, setTransitionActive] = useState(false);
 
     const [getUser, userResults] = useLazyQuery(ME);
@@ -34,7 +37,42 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, userResults.data]);
 
-    console.log('user: ', user);
+    useEffect(() => {
+        // amount of visible notifications
+        const visibleNotifications = notifications.filter(
+            notification => notification.visible === true
+        ).length;
+        setVisibleNotifications(visibleNotifications);
+    }, [notifications]);
+
+    // helper function for setting notifications
+    const addNotification = (message, type) => {
+        const newNotification = {
+            id: notifications.length,
+            message,
+            type,
+            visible: true,
+            visibleNotifications
+        };
+
+        // set visibilty to 0 after x secconds
+        setTimeout(() => {
+            setNotifications(prevState => {
+                // copy previous state
+                let newState = [...prevState];
+                // update the notification
+                const target = { ...prevState[notifications.length], visible: false };
+                console.log('target: ', target);
+                // add updated notification back in copied state
+                newState[notifications.length] = target;
+                // update state with new state
+                return newState;
+            });
+        }, 4000);
+
+        // add new notification to the state
+        setNotifications(prevState => [...prevState, newNotification]);
+    };
 
     const updateCacheWith = addedBook => {
         const includedIn = (set, object) => set.map(p => p.id).includes(object.id);
@@ -55,29 +93,10 @@ const App = () => {
         onSubscriptionData: ({ subscriptionData }) => {
             // console.log('subscription data: ', subscriptionData);
             const addedBook = subscriptionData.data.bookAdded;
-            setNotification(`New book added: ${addedBook.title}`, 'success', 5);
-            notificationTimer();
+            addNotification(`New book added: ${addedBook.title}`, 'success');
             updateCacheWith(addedBook);
         }
     });
-
-    // helper function for setting notifications
-    const setNotification = (text, type, duration) => {
-        setMessage(text);
-        setMessageType(type);
-        setTimeout(() => {
-            setMessage(null);
-            setMessageType(null);
-        }, duration * 1000);
-    };
-
-    // timer function is 1sec shorter than setNotification to keep text showing while notification exits
-    const notificationTimer = () => {
-        setShowNotification(true);
-        setTimeout(() => {
-            setShowNotification(false);
-        }, 5000);
-    };
 
     // toggle transition when changing page
     const transitionHelper = () => {
@@ -104,50 +123,37 @@ const App = () => {
     return (
         <div className='page'>
             <PageTransition transitionActive={transitionActive} />
+
             <Navigation
                 token={token}
                 setToken={setToken}
                 pageDelayHelper={pageDelayHelper}
-                setNotification={setNotification}
-                notificationTimer={notificationTimer}
+                addNotification={addNotification}
                 transitionHelper={transitionHelper}
                 logout={logout}
             />
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Notification
-                    type={messageType}
-                    message={message}
-                    showNotification={showNotification}
-                />
+                {notifications.length > 0 &&
+                    notifications.map(({ ...props }, i) => <Notification key={i} {...props} />)}
             </div>
             <LandingPage show={page === 'landingPage'} />
 
             <LoginForm
                 show={page === 'login'}
                 setToken={setToken}
-                setNotification={setNotification}
-                notificationTimer={notificationTimer}
+                addNotification={addNotification}
             />
 
-            <NewUser
-                setNotification={setNotification}
-                notificationTimer={notificationTimer}
-                show={page === 'newUser'}
-            />
+            <NewUser addNotification={addNotification} show={page === 'newUser'} />
 
-            <Authors
-                setNotification={setNotification}
-                notificationTimer={notificationTimer}
-                show={page === 'authors'}
-            />
+            <Authors addNotification={addNotification} show={page === 'authors'} />
 
             <Recommend user={user} setPage={setPage} show={page === 'recommend'} />
 
             <Books show={page === 'books'} />
 
             <NewBook
-                setNotification={setNotification}
-                notificationTimer={notificationTimer}
+                addNotification={addNotification}
                 updateCacheWith={updateCacheWith}
                 show={page === 'add'}
             />

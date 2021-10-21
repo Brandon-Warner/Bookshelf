@@ -1,15 +1,19 @@
-.notification-appear {
-    opacity: 0;
-    transform: translateX(-100%) scale(0.6);
+.notification {
+    position: fixed;
+    float: right;
+    width: 500px;
+    margin: 0;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #eee;
+    text-shadow: 1px 1px 1px black;
+    z-index: 2000;
 }
 
-.notification-appear-done {
-    opacity: 1;
-    transition: all 400ms;
-    transform: translateX(0) scale(1);
-}
-
-.notification-enter {
+/* .notification-enter {
     opacity: 0;
     transform: translateX(100%) scale(0.3);
 }
@@ -17,7 +21,7 @@
 .notification-enter-active {
     opacity: 1;
     transform: translateX(0) scale(1);
-    transition: all 400ms ease-out;
+    transition: all 400ms ease-in-out;
 }
 
 .notification-exit {
@@ -27,6 +31,17 @@
 
 .notification-exit-active {
     opacity: 0;
-    transform: translateX(100%) scale(0.3);
-    transition: opacity 400ms ease-in, transform 400ms ease-in;
+    transform: translateX(100%) scale(0.6);
+    transition: all 400ms ease-in-out;
+} */
+
+@media (max-width: 1185px) {
+    .notification {
+        width: 300px;
+        margin: 0;
+    }
+    /* .notification-exit {
+        opacity: 1;
+        margin: 0;
+    } */
 }

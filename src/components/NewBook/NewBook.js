@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { NEW_BOOK } from '../../queries';
 import './NewBook.css';
 
-const NewBook = ({ updateCacheWith, setNotification, show, notificationTimer }) => {
+const NewBook = ({ updateCacheWith, addNotification, show, notificationTimer }) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [published, setPublished] = useState('');
@@ -37,12 +37,10 @@ const NewBook = ({ updateCacheWith, setNotification, show, notificationTimer }) 
             !validateInput(genres) ||
             !validateInput(published)
         ) {
-            setNotification(
+            addNotification(
                 'Invalid entries, be sure form is complete before submitting',
-                'error',
-                5
+                'error'
             );
-            notificationTimer();
         } else {
             newBook({ variables: { title, author, published, genres } });
         }

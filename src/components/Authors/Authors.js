@@ -5,17 +5,14 @@ import { useMutation, useQuery } from '@apollo/client';
 
 import { ALL_AUTHORS, ADD_BORN } from '../../queries';
 
-const Authors = ({ show, setNotification, notificationTimer }) => {
+const Authors = ({ show, addNotification }) => {
     const [authors, setAuthors] = useState([]);
     const [name, setName] = useState(null);
     const [born, setBorn] = useState('');
     const result = useQuery(ALL_AUTHORS);
     const [addBorn] = useMutation(ADD_BORN, {
         refetchQueries: [{ query: ALL_AUTHORS }],
-        onError: () => {
-            setNotification('Error setting birth year, please try again', 'error', 5);
-            notificationTimer();
-        }
+        onError: () => addNotification('Error setting birth year, please try again', 'error')
     });
 
     useEffect(() => {
@@ -35,8 +32,7 @@ const Authors = ({ show, setNotification, notificationTimer }) => {
         event.preventDefault();
 
         if (!bornValidation(born)) {
-            setNotification('Please enter born as a Number!', 'error', 5);
-            notificationTimer();
+            addNotification('Please enter born as a Number!', 'error');
         } else {
             addBorn({ variables: { name, born } });
         }

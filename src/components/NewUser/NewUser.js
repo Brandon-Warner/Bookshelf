@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../queries';
 import './NewUser.css';
 
-const NewUser = ({ show, setNotification, notificationTimer }) => {
+const NewUser = ({ show, addNotification, notificationTimer }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [favoriteGenre, setFavoriteGenre] = useState('');
@@ -38,12 +38,11 @@ const NewUser = ({ show, setNotification, notificationTimer }) => {
         const passwordArray = password.split('');
         console.log('passwordArray: ', passwordArray);
         if (passwordArray.length < 8) {
-            setNotification('password needs to be 8 characters or more', 'error', 5);
-            notificationTimer();
+            addNotification('password needs to be 8 characters or more', 'error');
             return false;
         } else if (!containsNumber(passwordArray)) {
-            setNotification('password must contain at least one number', 'error', 5);
-            notificationTimer();
+            addNotification('password must contain at least one number', 'error');
+
             return false;
         }
         return true;
@@ -55,8 +54,7 @@ const NewUser = ({ show, setNotification, notificationTimer }) => {
         } else {
             createUser({ variables: { username, password, favoriteGenre } });
 
-            setNotification(`${username}'s account has been created`, 'success', 5);
-            notificationTimer();
+            addNotification(`${username}'s account has been created`, 'success');
         }
         setUsername('');
         setPassword('');
