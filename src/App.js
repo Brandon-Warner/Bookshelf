@@ -132,7 +132,14 @@ const App = () => {
                 transitionHelper={transitionHelper}
                 logout={logout}
             />
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    top: '70px'
+                }}
+            >
                 {notifications.length > 0 &&
                     notifications.map(({ ...props }, i) => <Notification key={i} {...props} />)}
             </div>
