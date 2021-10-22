@@ -47,7 +47,7 @@ const Books = ({ show }) => {
     return (
         <div className='container'>
             <div className='books_genres'>
-                <p>filter by genre: </p>
+                <p className='books_genres__title'>filter by genre: </p>
                 <div className='books_genres__buttons'>
                     {uniqueGenres.map(genre => (
                         <button

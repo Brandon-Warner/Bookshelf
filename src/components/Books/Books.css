@@ -1,6 +1,7 @@
 .container {
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-rows: 200px auto;
+    row-gap: 5px;
     background-color: #b9b8bbe3;
     width: 95vw;
     margin: 0 auto;
@@ -8,9 +9,9 @@
 }
 
 .books {
-    grid-column-start: 2, 3;
     font-size: 16px;
     margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -22,9 +23,10 @@
 
 table.books_table {
     table-layout: fixed;
-    max-width: 1000px;
-
-    margin: 0 auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
     border-collapse: collapse;
     border: 3px solid #eee;
     box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
@@ -72,18 +74,25 @@ tbody.books_table__body tr:hover {
 }
 
 .books_genres {
-    margin-top: 25px;
-    grid-column-start: 1, 2;
+    top: 25px;
+    bottom: auto;
 }
 
 .books_genres > p {
     padding: 10px;
 }
 
+.books_genres__title {
+    text-align: center;
+}
+
 .books_genres__buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    margin: 0 auto;
+    width: 80%;
 }
 
 .books_genres__button {
@@ -128,4 +137,35 @@ tbody.books_table__body tr:hover {
 .books_genres__button:hover {
     background: #498c91;
     color: #ffffff;
+}
+
+@media (max-width: 1185px) {
+    .container {
+        margin-top: 60px;
+        width: 100vw;
+    }
+
+    table.books_table {
+        width: 100%;
+    }
+    thead.books_table__headers th:nth-child(1) {
+        width: 60%;
+    }
+
+    thead.books_table__headers th:nth-child(2) {
+        width: 20%;
+    }
+
+    thead.books_table__headers th:nth-child(3) {
+        width: 20%;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-rows: 20% auto;
+    }
+    .books_genres {
+        width: 100%;
+    }
 }
