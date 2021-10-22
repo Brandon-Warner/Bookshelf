@@ -6,7 +6,7 @@ import Hamburger from '../Hamburger/Hamburger';
 const Navigation = ({ token, logout, transitionHelper, pageDelayHelper }) => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-    // console.log('hamburgerOpen: ', hamburgerOpen);
+    console.log('hamburgerOpen: ', hamburgerOpen);
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen);

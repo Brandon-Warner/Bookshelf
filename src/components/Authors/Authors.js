@@ -60,7 +60,7 @@ const Authors = ({ show, addNotification }) => {
                         onChange={target => setName(target.value)}
                         options={options}
                     />
-                    <p className='birthyear_input_text'>year they were born</p>
+                    <p className='birthyear_input_text'>birthyear</p>
                     <input
                         className='birthyear_input_content'
                         value={born}
