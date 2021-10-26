@@ -8,7 +8,7 @@ import { ALL_AUTHORS, ADD_BORN } from '../../queries';
 const Authors = ({ show, addNotification }) => {
     const [authors, setAuthors] = useState([]);
     const [name, setName] = useState(null);
-    const [born, setBorn] = useState('');
+    const [born, setBorn] = useState(0);
     const result = useQuery(ALL_AUTHORS);
     const [addBorn] = useMutation(ADD_BORN, {
         refetchQueries: [{ query: ALL_AUTHORS }],
@@ -22,6 +22,7 @@ const Authors = ({ show, addNotification }) => {
     }, [result.data]);
 
     const bornValidation = born => {
+        console.log('isNaN ? :', isNaN(born));
         if (isNaN(born) || born === '') {
             return false;
         }
@@ -30,15 +31,19 @@ const Authors = ({ show, addNotification }) => {
 
     const submit = async event => {
         event.preventDefault();
-
+        console.log('is born validated ? : ', bornValidation(born));
         if (!bornValidation(born)) {
             addNotification('Please enter born as a Number!', 'error');
         } else {
-            addBorn({ variables: { name, born } });
+            console.log('born: ', born);
+            const bornAsNumber = Number(born);
+            console.log('bornAsNumber: ', bornAsNumber);
+            console.log('name: ', name);
+            addBorn({ variables: { name, bornAsNumber } });
         }
 
         setName(null);
-        setBorn('');
+        setBorn(0);
     };
 
     if (!show) {
@@ -64,6 +69,7 @@ const Authors = ({ show, addNotification }) => {
                     <input
                         className='birthyear_input_content'
                         value={born}
+                        type='number'
                         onChange={({ target }) => setBorn(target.value)}
                     />
                     <button className='birthyear_form__button' type='submit'>

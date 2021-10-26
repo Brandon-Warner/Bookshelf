@@ -21,8 +21,8 @@ const App = () => {
 
     const [notifications, setNotifications] = useState([]);
     const [visibleNotifications, setVisibleNotifications] = useState([]);
-    console.log('notifications: ', notifications);
-    console.log('visibleNotifications: ', visibleNotifications);
+    // console.log('notifications: ', notifications);
+    // console.log('visibleNotifications: ', visibleNotifications);
 
     const [transitionActive, setTransitionActive] = useState(false);
 
