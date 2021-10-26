@@ -12,7 +12,9 @@ const Authors = ({ show, addNotification }) => {
     const result = useQuery(ALL_AUTHORS);
     const [addBorn] = useMutation(ADD_BORN, {
         refetchQueries: [{ query: ALL_AUTHORS }],
-        onError: () => addNotification('Error setting birth year, please try again', 'error')
+        onError: () =>
+            addNotification('Error setting birth year, must be LOGGED IN to update data', 'error'),
+        onCompleted: () => addNotification(`Updated birthyear`, 'success')
     });
 
     useEffect(() => {
