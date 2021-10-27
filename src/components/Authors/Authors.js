@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import './Authors.css';
 import { useMutation, useQuery } from '@apollo/client';
-
 import { ALL_AUTHORS, ADD_BORN } from '../../queries';
 
 const Authors = ({ show, addNotification }) => {
