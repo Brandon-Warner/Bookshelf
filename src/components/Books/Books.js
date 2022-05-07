@@ -13,25 +13,12 @@ const Books = ({ show }) => {
 
     const result = useQuery(ALL_BOOKS);
 
-    // ERROR EXISTS IN SET GENRE CODE BLOCK
     // INITIAL LOAD OF BOOKS
     useEffect(() => {
         if (result.data) {
             const allBooks = result.data.allBooks;
             setBooks(allBooks);
-            // let genres = ['ALL'];
-            // books.forEach(book => {
-            //     book.genres.forEach(g => {
-            //         genres.push(g);
-            //     });
-            // });
-            // setGenres(genres);
-
-            // setUniqueGenres([...new Set(genres)]);
         }
-
-        // setSelectedGenre('ALL');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result, books]);
 
     // INITIAL LOAD OF GENRE BUTTONS
