@@ -8,12 +8,13 @@ const Books = ({ show }) => {
     const [filteredBooks, setFilteredBooks] = useState([]);
     // eslint-disable-next-line no-unused-vars
     const [genres, setGenres] = useState([]);
-    const [selectedGenre, setSelectedGenre] = useState('');
+    const [selectedGenre, setSelectedGenre] = useState('ALL');
     const [uniqueGenres, setUniqueGenres] = useState([]);
 
     const result = useQuery(ALL_BOOKS);
 
     // ERROR EXISTS IN SET GENRE CODE BLOCK
+    // INITIAL LOAD OF BOOKS
     useEffect(() => {
         if (result.data) {
             const allBooks = result.data.allBooks;
@@ -29,9 +30,24 @@ const Books = ({ show }) => {
             // setUniqueGenres([...new Set(genres)]);
         }
 
-        setSelectedGenre('ALL');
+        // setSelectedGenre('ALL');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result, books]);
+
+    // INITIAL LOAD OF GENRE BUTTONS
+    useEffect(() => {
+        if (books) {
+            let genres = ['ALL'];
+            books.forEach(book => {
+                book.genres.forEach(g => {
+                    genres.push(g);
+                });
+            });
+            setGenres(genres);
+
+            setUniqueGenres([...new Set(genres)]);
+        }
+    }, [books]);
 
     useEffect(() => {
         if (selectedGenre === 'ALL') {
