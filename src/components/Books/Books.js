@@ -13,19 +13,20 @@ const Books = ({ show }) => {
 
     const result = useQuery(ALL_BOOKS);
 
+    // ERROR EXISTS IN SET GENRE CODE BLOCK
     useEffect(() => {
         if (result.data) {
             const allBooks = result.data.allBooks;
             setBooks(allBooks);
-            let genres = ['ALL'];
-            books.forEach(book => {
-                book.genres.forEach(g => {
-                    genres.push(g);
-                });
-            });
-            setGenres(genres);
+            // let genres = ['ALL'];
+            // books.forEach(book => {
+            //     book.genres.forEach(g => {
+            //         genres.push(g);
+            //     });
+            // });
+            // setGenres(genres);
 
-            setUniqueGenres([...new Set(genres)]);
+            // setUniqueGenres([...new Set(genres)]);
         }
 
         setSelectedGenre('ALL');
